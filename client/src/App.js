@@ -1,3 +1,4 @@
+import "./App.css"
 import Home from './components/shared/Home';
 import NoMatch from './components/shared/NoMatch';
 import Navbar from './components/shared/Navbar';

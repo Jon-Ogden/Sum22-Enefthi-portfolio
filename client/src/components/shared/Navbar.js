@@ -1,29 +1,26 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Button from "../styled-components/Button";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate()
     const {user, logout} = useContext(AuthContext);
 
     const renderNavItems = () => {
         if (user) {
           return (
             <>
-              <Link to="/account">
-                <li>Account</li>
-              </Link>
-              <li onClick={logout}>Logout</li>
+              <Button event={() => {navigate("/account")}}>Account</Button>
+              <Button onClick={() => {logout()}}>Logout</Button>
             </>
           );
         } else {
           return (
             <>
-              <Link to="/login">
-                <li>Login</li>
-              </Link>
-              <Link to="/register">
-                <li>Register</li>
-              </Link>
+              <Button onClick={() => {navigate("/login")}}>Login</Button>
+              <Button onClick={() => {navigate("/register")}}>Register</Button>
             </>
           );
         }
@@ -32,12 +29,8 @@ const Navbar = () => {
     return (
         <div>
             <nav>
-                <ul>
-                    <Link to="/">
-                        <li>Home</li>
-                    </Link>
+              <Button event={() => {navigate("/")}}>Home</Button>
                     {renderNavItems()}
-                </ul>
             </nav>
         </div>
     )
