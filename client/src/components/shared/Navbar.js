@@ -13,14 +13,14 @@ const Navbar = () => {
           return (
             <>
               <Button event={() => {navigate("/account")}}>Account</Button>
-              <Button onClick={() => {logout()}}>Logout</Button>
+              <Button event={() => {logout()}}>Logout</Button>
             </>
           );
         } else {
           return (
             <>
-              <Button onClick={() => {navigate("/login")}}>Login</Button>
-              <Button onClick={() => {navigate("/register")}}>Register</Button>
+              <Button event={() => {navigate("/login")}}>Login</Button>
+              <Button event={() => {navigate("/register")}}>Register</Button>
             </>
           );
         }
