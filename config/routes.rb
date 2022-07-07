@@ -4,4 +4,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :api do
+    resources :nfts do
+      resources :sales
+    end
+    get '/sales', to:'sales#all_sales'
+    get '/nfts', to:'ntfs#all_nfts'
+  end
 end
