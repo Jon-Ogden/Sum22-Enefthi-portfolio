@@ -10,9 +10,9 @@ import UserAccount from "./components/shared/UserAccount";
 import FetchUser from "./components/auth/FetchUser";
 
 const App = () => (
-  <>
+  <div>
     <Navbar />
-    <>
+    <div>
       <FetchUser>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,8 +24,8 @@ const App = () => (
           <Route path="/*" element={<NoMatch />} />
         </Routes>
       </FetchUser>
-    </>
-  </>
+    </div>
+  </div>
 );
 //hi
 export default App;
