@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_07_220649) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_08_172934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "liked_nfts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "nft_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_liked_nfts_on_user_id"
+  end
 
   create_table "nfts", force: :cascade do |t|
     t.float "price"
@@ -21,9 +29,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_220649) do
     t.bigint "user_id", null: false
     t.boolean "for_sale"
     t.datetime "sale_date"
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_nfts_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sales", force: :cascade do |t|
@@ -66,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_220649) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "liked_nfts", "users"
   add_foreign_key "nfts", "users"
   add_foreign_key "sales", "nfts"
 end
