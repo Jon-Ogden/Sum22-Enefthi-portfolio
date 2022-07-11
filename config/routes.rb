@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :nfts do
       resources :sales
     end
+    get '/users', to:'users#all_users'
     get '/sales', to:'sales#all_sales'
     get '/nfts', to:'ntfs#all_nfts'
   end
