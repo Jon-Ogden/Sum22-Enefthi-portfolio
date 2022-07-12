@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
     get '/users', to:'users#all_users'
     get '/sales', to:'sales#all_sales'
-    get '/nfts', to:'ntfs#all_nfts'
+    get '/relationships', to:'relationships#all_relationships'
+    get '/liked_nfts', to:'liked_nfts#all_likes'
+    delete '/sales/:id', to:'sales#destroy_sale'
   end
 end
