@@ -64,9 +64,46 @@ const DataProvider = ({children})=> {
         axios.post(`/api/nfts/${newInfo.nft_id}/sales/`, newInfo);
       };
 
+    const getUserRelationships = async(id) =>{
+      try {
+        let res = await axios.get(`/api/users/${id}/relationships`)
+        return res.data
+      } catch (error) {
+        alert(error)
+      }
+    }
+    const newRelationship = async(info) => {
+      let newRelationships = [...relationships, info]
+      setRelationships(newRelationships)
+      axios.post(`/api/relationships/`,info)
+    }
+
+    const getNftLikes = async(id) => {
+      try {
+        let res = await axios.get(`/api/nfts/${id}/liked_nfts`)
+        return res.data
+      } catch(error){
+        alert(error)
+      }
+    }
+    const getUserLikes = async() => {
+      try {
+        let res = await axios.get(`/api/users/${id}/liked_nfts`)
+        return res.data
+      } catch(error){
+        alert(error)
+      }
+    }
+    const newLike = (info) => {
+    let newLikes = [...liked_nfts, info]
+    setLiked_nfts(newLikes)
+    axios.post(`/api/liked_nfts/`,info)
+    }
+
     return (
         <DataContext.Provider value={{nfts, users, sales, liked_nfts, relationships,
-        deleteThing}}>
+        deleteThing, updateNft, newNft, updateSale, newSale, getUserRelationships,
+        newRelationship, getNftLikes, getUserLikes, newLike}}>
             {children}
         </DataContext.Provider>
     )
