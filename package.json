@@ -1,7 +1,13 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+=======
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.7",
+>>>>>>> 220bc223e4633a61ce07abd42f6a4b168120aaa1
     "styled-components": "^5.3.5"
   }
 }

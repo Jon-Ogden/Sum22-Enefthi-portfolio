@@ -1,0 +1,31 @@
+.banner-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 1000px;
+  height: 300px;
+  outline: 1px solid black;
+  
+}
+.banner-card img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -999;
+  display: flex;
+  position: relative;
+}
+
+.banner-card button {
+  align-items: baseline;
+  left: 600px;
+  top: 475px;
+  z-index: 1;
+  position: absolute;
+}
+.banner-card h1 {
+  align-items: baseline;
+  z-index: 1;
+  position: absolute; 
+}
