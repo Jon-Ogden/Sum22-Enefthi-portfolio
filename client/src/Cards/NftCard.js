@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
-export default function NftCard() {
+function NftCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -25,7 +25,7 @@ export default function NftCard() {
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
-          Price 
+          Price
           <br />
           <MonetizationOnIcon />
           {/* {price ?} */}
@@ -37,3 +37,4 @@ export default function NftCard() {
     </Card>
   );
 }
+export default NftCard;

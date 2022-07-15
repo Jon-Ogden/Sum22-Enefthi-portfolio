@@ -1,0 +1,11 @@
+.nftdisplay{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 5%;
+  height: 400px;
+  width: 70%;
+}
+.parent {
+  margin-left: 12.5%;
+}
