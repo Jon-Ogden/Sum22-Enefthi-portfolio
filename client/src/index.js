@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import AuthProvider from "./providers/AuthProvider";
 import { BrowserRouter } from "react-router-dom";
 import { initMiddleware } from "devise-axios"
+import DataProvider from "./providers/DataProvider";
 
 initMiddleware()
 
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthProvider>
-      <App />
+      <DataProvider>
+        <App />
+      </DataProvider>
     </AuthProvider>
   </BrowserRouter>
 );

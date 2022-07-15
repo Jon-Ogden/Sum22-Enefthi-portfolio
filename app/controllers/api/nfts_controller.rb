@@ -32,7 +32,7 @@ class Api::NftsController < ApplicationController
 
     private
     def set_nft
-        @nft = nft.find(params[:id])
+        @nft = Nft.find(params[:id])
     end
     def nft_params
         params.require(:nft).permit(:price, :description, :image, :user_id, :for_sale, :sale_date)
