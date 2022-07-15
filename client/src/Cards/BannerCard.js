@@ -5,11 +5,16 @@ import "../Css/bannercard.css";
 
 const BannerCard = () => {
   return (
-    <div className="banner-card">
-      <h1>Banner title</h1>
-      {/* <img src="https://i0.wp.com/aestheticsforbirds.com/wp-content/uploads/2021/03/beeple-horiz.jpg?resize=768%2C476&ssl=1"></img> */}
-      <Button variant="contained">Contained</Button>
-      <Button variant="contained">other</Button>
+    <div className="bannercard">
+      <div id="imageonly">
+        <div class="content">
+          <h1>title</h1>
+          <div class="btn-cont">
+            <Button variant="contained">Explore More</Button>
+            <Button variant="contained">add</Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

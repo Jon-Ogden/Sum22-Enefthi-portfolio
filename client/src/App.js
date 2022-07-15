@@ -1,31 +1,40 @@
 import "./App.css";
-import Home from "./components/shared/Home";
+import Landing from "./components/shared/Landing";
 import NoMatch from "./components/shared/NoMatch";
-import Navbar from "./components/shared/Navbar";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UserAccount from "./components/shared/UserAccount";
 import FetchUser from "./components/auth/FetchUser";
+import Navbar from "./Sidebar/Navbar";
+import DashBoard from "./components/auth/MainPage";
 
-const App = () => (
-  <div>
-    <Navbar />
+const App = () => {
+  const location = useLocation();
+
+  return (
     <div>
-      <FetchUser>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/account" element={<UserAccount />} />
-          </Route>
-          <Route path="/*" element={<NoMatch />} />
-        </Routes>
-      </FetchUser>
+      {location.pathname !== "/" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/register" && <Navbar />}
+
+      <div>
+        <FetchUser>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<DashBoard />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/account" element={<UserAccount />} />
+            </Route>
+            <Route path="/*" element={<NoMatch />} />
+          </Routes>
+        </FetchUser>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 //hi
 export default App;
