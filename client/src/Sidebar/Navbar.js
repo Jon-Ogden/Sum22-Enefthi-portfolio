@@ -17,15 +17,11 @@ export default function Navbar() {
     <div className="shiftleft">
       <IconContext.Provider value={{ color: "#FFF" }}>
         <div className="navbar">
-          <div>
-            <Input className="input">Hello</Input>
+          <div className="input">
+            <Input>Hello</Input>
           </div>
-          <div>
+          <div className="rightbuttons">
             <NavbarButtons />
-            <div className="right-buttons">
-              {/* <Avatar /> */}
-              {/* <LocalAtmIcon /> */}
-            </div>
           </div>
         </div>
         <nav className={"nav-menu active"}>
