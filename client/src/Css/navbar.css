@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  outline: gray solid 1px;
+  outline: #f3f3f3 solid 1px;
 }
 
 .menu-bars {
@@ -29,7 +29,7 @@
   top: 0;
   left: -100%;
   transition: 850ms;
-  outline: black solid 1px;
+  outline: #f3f3f3 solid 1px;
 }
 
 .nav-menu.active {
@@ -82,6 +82,15 @@ span {
 
 .input{
   align-items: center;
-  margin-left: 25%;
+  margin-left: 17%;
+  outline: black 1px solid;
 }
 
+.rightbuttons {
+  align-items: center;
+  text-align: center;
+
+}
+text {
+  text-align: center;
+}

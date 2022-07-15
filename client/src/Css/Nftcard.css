@@ -9,3 +9,28 @@
 .parent {
   margin-left: 12.5%;
 }
+
+.newest {
+  text-align: left;
+  margin-left: 5%;
+}
+
+.rightbar {
+  outline: #f3f3f3 solid 1px;
+  align-items: right;
+  text-align: right;
+  width: 330px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: -0%;
+  transition: 850ms;
+  margin-top: 4.85%;
+}
+
+.creatorcard {
+  height: 10%;
+  margin-top: 10%;
+}
