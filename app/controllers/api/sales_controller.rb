@@ -31,8 +31,9 @@ class Api::SalesController < ApplicationController
         end
     end
     
-    def destroy
-        render json: @sale.destroy
+    def destroy_sale
+        sale = sale.find(params[:id])
+        render json: sale.destroy
     end
     
     private
