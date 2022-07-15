@@ -5,21 +5,18 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Avatar from '@mui/material/Avatar';
+import Avatar from "@mui/material/Avatar";
 
 export default function MediaCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 280, maxHeight: 500 }}>
       <CardMedia
         component="img"
         height="140"
         image="https://static.news.bitcoin.com/wp-content/uploads/2021/01/OVofab6V-esiyicbxyaqnh8u.jpeg"
         alt="NFT IMAGE"
       />
-      <Avatar 
-        alt="Profile Photo" 
-        
-        src="" />
+      <Avatar alt="Profile Photo" src="" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Creator Name
