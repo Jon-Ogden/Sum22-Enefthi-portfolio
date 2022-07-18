@@ -1,0 +1,12 @@
+.container{
+  margin: 2.5%;
+  outline: black 1px solid;
+ }
+
+ .personalinfo{
+  outline: black 1px solid;
+ }
+
+ .buttons {
+  margin-left: 50%
+ }

@@ -9,6 +9,7 @@ import UserAccount from "./components/shared/UserAccount";
 import FetchUser from "./components/auth/FetchUser";
 import Navbar from "./Sidebar/Navbar";
 import DashBoard from "./components/auth/MainPage";
+import Settings from "./components/auth/Settings";
 
 const App = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<DashBoard />} />
+            <Route path="/settings" element={<Settings />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
             </Route>
