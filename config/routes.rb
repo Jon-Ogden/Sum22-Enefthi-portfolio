@@ -23,5 +23,6 @@ Rails.application.routes.draw do
     get '/relationships', to:'relationships#all_relationships'
     get '/liked_nfts', to:'liked_nfts#all_likes'
     delete '/sales/:id', to:'sales#destroy_sale'
+    get '/nfts/page/:page', to:'nfts#paginate_all'
   end
 end

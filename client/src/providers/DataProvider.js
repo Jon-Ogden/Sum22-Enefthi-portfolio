@@ -49,6 +49,14 @@ const DataProvider = ({children})=> {
         setNfts(newNfts);
         axios.post(`/api/nfts/`, newInfo);
       };
+    const paginateNft = async(pagenum = 1) => {
+      try {
+        let res = await axios.get(`/api/nfts/page/${pagenum}`)
+        return res.data
+      } catch (error) {
+        alert(error)
+      }
+    };
 
     const updateSale = async (newInfo) => {
         let newSales = sales.map((c) => (c.id === newInfo.id ? newInfo : c));
@@ -68,6 +76,7 @@ const DataProvider = ({children})=> {
       try {
         let res = await axios.get(`/api/users/${id}/relationships`)
         return res.data
+        // returns an array of the users followers and followees
       } catch (error) {
         alert(error)
       }
@@ -86,7 +95,7 @@ const DataProvider = ({children})=> {
         alert(error)
       }
     }
-    const getUserLikes = async() => {
+    const getUserLikes = async(id) => {
       try {
         let res = await axios.get(`/api/users/${id}/liked_nfts`)
         return res.data
@@ -103,7 +112,7 @@ const DataProvider = ({children})=> {
     return (
         <DataContext.Provider value={{nfts, users, sales, liked_nfts, relationships,
         deleteThing, updateNft, newNft, updateSale, newSale, getUserRelationships,
-        newRelationship, getNftLikes, getUserLikes, newLike}}>
+        newRelationship, getNftLikes, getUserLikes, newLike, paginateNft}}>
             {children}
         </DataContext.Provider>
     )

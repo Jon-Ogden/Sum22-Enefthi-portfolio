@@ -34,8 +34,9 @@ Relationship.create(follower_id:u2.id, followee_id:u1.id)
     newUser = User.create(name:name, username:username, email:email, password:password, image:image)
     2.times do
         p = Faker::Commerce.price(range: 1.00..10000.00)
-        i = Faker::LoremFlickr.image(size: "500x500",  match_all: true)
+        i = "https://picsum.photos/id/#{rand(1000)}/500"
         d = Faker::ChuckNorris.fact
-        newUser.nfts.create(price:p, image:i, description:d, for_sale:true, creator_id:newUser.id)
+        t = Faker::Commerce.product_name
+        newUser.nfts.create(price:p, image:i, description:d, for_sale:true, creator_id:newUser.id, title:t)
     end
 end

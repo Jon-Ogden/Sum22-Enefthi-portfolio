@@ -1,5 +1,6 @@
 class Api::NftsController < ApplicationController
     before_action :set_nft, only: [:show, :update, :destroy]
+    before_action :set_page, only: [:paginate_all]
 
     def index
         render json: Nft.all
@@ -30,11 +31,20 @@ class Api::NftsController < ApplicationController
         end
     end
 
+    def paginate_all
+        nfts = Nft.all
+        nfts = Kaminari.paginate_array(nfts).page(@page).per(25)
+        render json: {nfts:nfts, total_pages:nfts.total_pages}
+    end
+
     private
     def set_nft
         @nft = Nft.find(params[:id])
     end
     def nft_params
         params.require(:nft).permit(:price, :description, :image, :user_id, :for_sale, :sale_date)
+    end
+    def set_page
+        @page = params[:page] || 1
     end
 end

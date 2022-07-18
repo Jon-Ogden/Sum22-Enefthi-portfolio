@@ -7,25 +7,25 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
-function NftCard() {
+function NftCard(props) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className='card'>
       <CardMedia
         component="img"
         height="140"
-        image="https://static.news.bitcoin.com/wp-content/uploads/2021/01/OVofab6V-esiyicbxyaqnh8u.jpeg"
+        image={props.image}
         alt="NFT IMAGE"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          NFT Title
+          {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          By Artist Name
+          By {props.creator}
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
-          Price
+          {props.price}
           <br />
           <MonetizationOnIcon />
           {/* {price ?} */}
