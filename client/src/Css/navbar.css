@@ -22,7 +22,7 @@
 .nav-menu {
   background-color: #f7f9fa;
   width: 250px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   position: absolute;

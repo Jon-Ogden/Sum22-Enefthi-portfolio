@@ -21,6 +21,7 @@ export default function Navbar() {
             <Input>Hello</Input>
           </div>
           <div className="rightbuttons">
+            <Avatar />
             <NavbarButtons />
           </div>
         </div>
