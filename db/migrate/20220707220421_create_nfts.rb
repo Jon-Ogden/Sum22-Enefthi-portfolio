@@ -8,6 +8,7 @@ class CreateNfts < ActiveRecord::Migration[7.0]
       t.boolean :for_sale
       t.datetime :sale_date
       t.integer :creator_id
+      t.string :title
 
       t.timestamps
     end

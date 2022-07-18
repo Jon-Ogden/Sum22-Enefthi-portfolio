@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_172934) do
     t.boolean "for_sale"
     t.datetime "sale_date"
     t.integer "creator_id"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_nfts_on_user_id"
