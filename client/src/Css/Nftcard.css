@@ -16,18 +16,14 @@
 }
 
 .rightbar {
-  outline: #f3f3f3 solid 1px;
-  align-items: right;
-  text-align: right;
-  width: 330px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
   position: absolute;
   top: 0;
-  right: -0%;
+  right:0;
+  width: 250px;
+  height: 100%;
   transition: 850ms;
-  margin-top: 4.85%;
+  margin-top: 3%;
+  margin-right: 4%;
 }
 
 .creatorcard {

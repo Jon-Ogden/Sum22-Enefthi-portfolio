@@ -2,7 +2,7 @@ import "../../Css/shiftleft.css";
 import "../../Css/settings.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 
 const Settings = () => {
   return (
@@ -16,7 +16,18 @@ const Settings = () => {
           <Button>Preview</Button>
           <Button>Cancel</Button>
         </div>
+        <div className="userinfo">
+          <h3>Your photo</h3>
+          <hr />
+          <Avatar /> <h4>Edit Your Photo</h4>
+          <Button>Delete</Button>
+          <Button>Update</Button>
+          <h2>Drop box</h2>
+        </div>
+
         <div className="personalinfo">
+          <h3>Personal Information</h3>
+          <hr />
           <TextField
             required
             id="filled-required"

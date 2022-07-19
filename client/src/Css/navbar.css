@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  outline: #f3f3f3 solid 1px;
+  outline: gray solid 1px;
 }
 
 .menu-bars {
@@ -20,16 +20,14 @@
 }
 
 .nav-menu {
+
+  
+  position: fixed;
+  top: 0;
+  left:0;
   background-color: #f7f9fa;
   width: 250px;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: -100%;
-  transition: 850ms;
-  outline: #f3f3f3 solid 1px;
 }
 
 .nav-menu.active {
@@ -82,15 +80,6 @@ span {
 
 .input{
   align-items: center;
-  margin-left: 17%;
-  outline: black 1px solid;
+  margin-left: 25%;
 }
 
-.rightbuttons {
-  align-items: center;
-  text-align: center;
-
-}
-text {
-  text-align: center;
-}

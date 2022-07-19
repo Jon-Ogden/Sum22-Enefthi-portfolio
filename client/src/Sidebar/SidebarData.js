@@ -41,7 +41,7 @@ export const SidebarData = [
   },
   {
     title: "Settings",
-    path: "/",
+    path: "/settings",
     icon: <SettingsIcon />,
     cName: "nav-text",
   },
@@ -52,8 +52,3 @@ export const SidebarData = [
     cName: "nav-text",
   },
 ];
-//  <Button
-// event={() => {
-//   logout();
-// }}
-// >
