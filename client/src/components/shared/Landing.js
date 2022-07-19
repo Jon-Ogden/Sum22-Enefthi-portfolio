@@ -2,16 +2,18 @@ import { Title } from "../styled-components/Fonts";
 import Button from "../styled-components/Button";
 import { useNavigate } from "react-router-dom";
 import HomeNavbarButtons from "./HomeNav";
+import "../../Css/landing.css";
 const Landing = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <HomeNavbarButtons />
       <div>
-        <header> </header>
-        <div>
-          <Title>Welcome to ENEFTHI</Title>
-        </div>
+        <header>
+          <div className="header">
+            <Title>Welcome to ENEFTHI</Title>
+            <HomeNavbarButtons />
+          </div>
+        </header>
       </div>
     </div>
   );

@@ -6,35 +6,38 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import "../Css/letswork.css";
 
 function NftCard(props) {
   return (
-    <Card sx={{ maxWidth: 345 }} className='card'>
-      <CardMedia
-        component="img"
-        height="140"
-        image={props.image}
-        alt="NFT IMAGE"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {props.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          By {props.creator}
-        </Typography>
-        <br />
-        <Typography variant="body2" color="text.secondary">
-          {props.price}
+    <div className="letswork">
+      <Card sx={{ maxWidth: 345 }} className="card">
+        <CardMedia
+          component="img"
+          height="140"
+          image={props.image}
+          alt="NFT IMAGE"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {props.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            By {props.creator}
+          </Typography>
           <br />
-          <MonetizationOnIcon />
-          {/* {price ?} */}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Buy Piece</Button>
-      </CardActions>
-    </Card>
+          <Typography variant="body2" color="text.secondary">
+            {props.price}
+            <br />
+            <MonetizationOnIcon />
+            {/* {price ?} */}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Buy Piece</Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 export default NftCard;
