@@ -32,9 +32,9 @@ const DataProvider = ({children})=> {
         getThings();
     },[])
 
-    const deleteThing = (id, things, setThings) =>{
+    const deleteThing = (id, things, setThings, path) =>{
         setThings(things.filter((c) => c.id !== id));
-        axios.delete(`/api/${things}/${id}`);
+        axios.delete(`/api/${path}/${id}`);
     }
 
     const updateNft = async (newInfo) => {
@@ -110,7 +110,7 @@ const DataProvider = ({children})=> {
     }
 
     return (
-        <DataContext.Provider value={{nfts, users, sales, liked_nfts, relationships,
+        <DataContext.Provider value={{nfts, users, sales, liked_nfts, setLiked_nfts, relationships,
         deleteThing, updateNft, newNft, updateSale, newSale, getUserRelationships,
         newRelationship, getNftLikes, getUserLikes, newLike, paginateNft}}>
             {children}
