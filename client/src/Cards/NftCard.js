@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { DataContext } from "../providers/DataProvider";
 import { AuthContext } from "../providers/AuthProvider";
+import "../Css/letswork.css";
 
 function NftCard(props) {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function NftCard(props) {
   }
 
   return (
-    <Card sx={{ maxWidth: 345 }} className='card'>
+    <Card sx={{ maxWidth: 345 }} className='card letswork'>
       <div onClick={()=>{navigate(`/market/details/${props.id}`)}}>
         <CardMedia
           component="img"
