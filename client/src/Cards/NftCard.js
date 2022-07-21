@@ -6,12 +6,36 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import { useNavigate } from "react-router-dom";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { IconButton } from "@mui/material";
+import { useState } from "react";
+import { useContext } from "react";
+import { DataContext } from "../providers/DataProvider";
+import { AuthContext } from "../providers/AuthProvider";
 import "../Css/letswork.css";
 
 function NftCard(props) {
+  const navigate = useNavigate();
+  const [liked, setLiked] = useState(props.liked)
+  const { deleteThing, newLike, liked_nfts, setLiked_nfts} = useContext(DataContext)
+  const { user } = useContext(AuthContext)
+
+  const toggleLike = () => {
+    if(!liked){
+      let info = {nft_id:props.id, user_id:user.id}
+      newLike(info)
+      setLiked(true)
+    } else {
+      deleteThing(props.like_id, liked_nfts, setLiked_nfts, 'liked_nfts')
+      setLiked(false)
+    }
+  }
+
   return (
-    <div className="letswork">
-      <Card sx={{ maxWidth: 345 }} className="card">
+    <Card sx={{ maxWidth: 345 }} className='card letswork'>
+      <div onClick={()=>{navigate(`/market/details/${props.id}`)}}>
         <CardMedia
           component="img"
           height="140"
@@ -33,11 +57,14 @@ function NftCard(props) {
             {/* {price ?} */}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Buy Piece</Button>
-        </CardActions>
-      </Card>
-    </div>
+      </div>
+      <CardActions>
+        <Button  onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
+        <IconButton onClick={()=>{toggleLike()}}>
+          {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 }
 export default NftCard;
