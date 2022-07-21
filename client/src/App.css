@@ -13,4 +13,8 @@
   grid-template-columns: repeat(auto-fill, 345px);
   grid-auto-rows: auto;
 }
+.pageController{
+  text-align: center;
+  margin: 20px;
+}
 
