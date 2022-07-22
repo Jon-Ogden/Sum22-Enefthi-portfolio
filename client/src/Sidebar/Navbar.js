@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IconContext } from "react-icons";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -7,7 +7,6 @@ import { SidebarData } from "./SidebarData";
 import "../Css/navbar.css";
 import NavbarButtons from "./NavbarButtons";
 import { Input } from "@mui/material";
-import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import Avatar from "@mui/material/Avatar";
 
 export default function Navbar() {
@@ -18,7 +17,7 @@ export default function Navbar() {
       <IconContext.Provider value={{ color: "#FFF" }}>
         <div className="navbar">
           <div className="input">
-            <Input>Hello</Input>
+            <Input className="serchinput">Hello</Input>
           </div>
           <div className="rightbuttons">
             <Avatar />
@@ -32,7 +31,7 @@ export default function Navbar() {
                 <li key={index} className={item.cName}>
                   <Link
                     to={item.path}
-                    onClick={item.title == "Logout" ? () => logout() : null}
+                    onClick={item.title === "Logout" ? () => logout() : null}
                   >
                     {item.icon}
                     <span>{item.title}</span>

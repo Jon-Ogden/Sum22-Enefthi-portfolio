@@ -13,6 +13,10 @@ import Settings from "./components/auth/Settings";
 import NftPage from "./components/testing/NftPage";
 import MarketDetail from "./components/shared/MarketDetail";
 import OtherUser from "./components/shared/OtherUser";
+import Payment from "./components/auth/Payment";
+import Saved from "./components/auth/Saved";
+import CreateNft from "./components/auth/CreateNft";
+import MyUser from "./components/auth/UserProfile";
 
 const App = () => {
   const location = useLocation();
@@ -31,9 +35,13 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/NftPage" element={<NftPage />} />
-            <Route path="/MarketDetail" element={<MarketDetail />} />
-            <Route path="/OtherUser" element={<OtherUser />} />
+            <Route path="/nftpage" element={<NftPage />} />
+            <Route path="/marketdetail" element={<MarketDetail />} />
+            <Route path="/otheruser" element={<OtherUser />} />
+            <Route path="/myuser" element={<MyUser />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/saved" element={<Saved />} />
+            <Route path="/createnft" element={<CreateNft />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
             </Route>
