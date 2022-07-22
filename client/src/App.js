@@ -10,6 +10,7 @@ import FetchUser from "./components/auth/FetchUser";
 import Navbar from "./Sidebar/Navbar";
 import DashBoard from "./components/auth/MainPage";
 import Settings from "./components/auth/Settings";
+import Market from "./components/shared/Market";
 import NftPage from "./components/testing/NftPage";
 import MarketDetail from "./components/shared/MarketDetail";
 import OtherUser from "./components/shared/OtherUser";
@@ -42,6 +43,10 @@ const App = () => {
             <Route path="/payment" element={<Payment />} />
             <Route path="/saved" element={<Saved />} />
             <Route path="/createnft" element={<CreateNft />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/NftPage" element={<NftPage />} />
+            <Route path="/MarketDetail" element={<MarketDetail />} />
+            <Route path="/OtherUser" element={<OtherUser />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
             </Route>
