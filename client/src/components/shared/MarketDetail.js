@@ -25,7 +25,6 @@ const MarketDetail = () => {
   const [like_id, setLike_id] = useState(userLikes.filter(c => c.nft_id == params.id)[0])
   const [ normData, setNormData] = useState([])
   const creator_nfts = nfts.filter(c => c.creator_id == nft.creator_id && c.id !== nft.id)
-  
   const [liked, setLiked] = useState(false)
 
 

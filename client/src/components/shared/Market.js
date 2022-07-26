@@ -34,6 +34,17 @@ export default function Market(){
         }
       }
 
+    const getInitDataNoUser = async() => {
+      try {
+        let res2 = await axios.get(`/api/nfts/page/${1}`)
+        setNormData(normalize(res2.data.nfts))
+        setTotalPages(res2.data.total_pages)
+      } catch(error){
+        alert(error)
+      }
+    }
+    
+
       const paginateNft = async(pagenum = 1) => {
         try {
           let res = await axios.get(`/api/nfts/page/${pagenum}`)
@@ -47,6 +58,8 @@ export default function Market(){
     useEffect(()=>{
         if(user){
             getInitData(user.id)
+        } else {
+            getInitDataNoUser()
         }
     },[])
 
@@ -75,7 +88,7 @@ export default function Market(){
         }
     }
 
-    const normalize = (nfts, userlikes) => {
+    const normalize = (nfts, userlikes = []) => {
         if(userlikes.length <= 0){
             return nfts.map(c => ({...c, liked:false}))
         }
