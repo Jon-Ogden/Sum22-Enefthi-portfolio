@@ -38,7 +38,7 @@ class Api::SalesController < ApplicationController
     
     private
     def set_nft
-        @nft = nft.find(params[:nft_id])
+        @nft = Nft.find(params[:nft_id])
     end
     def set_sale
         @sale = @nft.sales.find(params[:id])

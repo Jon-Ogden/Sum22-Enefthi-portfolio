@@ -11,13 +11,12 @@ import Navbar from "./Sidebar/Navbar";
 import DashBoard from "./components/auth/MainPage";
 import Settings from "./components/auth/Settings";
 import Market from "./components/shared/Market";
-// import NftPage from "./components/testing/NftPage";
 import MarketDetail from "./components/shared/MarketDetail";
-import OtherUser from "./components/shared/OtherUser";
 import Payment from "./components/auth/Payment";
 import Saved from "./components/auth/Saved";
 import CreateNft from "./components/auth/CreateNft";
 import MyUser from "./components/auth/UserProfile";
+import Profile from "./components/shared/Profile";
 
 const App = () => {
   const location = useLocation();
@@ -44,9 +43,8 @@ const App = () => {
             <Route path="/saved" element={<Saved />} />
             <Route path="/createnft" element={<CreateNft />} />
             <Route path="/market" element={<Market />} />
-            <Route path="/NftPage" element={<NftPage />} />
-            <Route path="/MarketDetail" element={<MarketDetail />} />
-            <Route path="/OtherUser" element={<OtherUser />} />
+            <Route path="/MarketDetail/:id" element={<MarketDetail />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
             </Route>

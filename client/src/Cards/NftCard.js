@@ -35,7 +35,7 @@ function NftCard(props) {
 
   return (
     <Card sx={{ maxWidth: 345 }} className='card letswork'>
-      <div onClick={()=>{navigate(`/market/details/${props.id}`)}}>
+      <div onClick={()=>{navigate(`/MarketDetail/${props.id}`)}}>
         <CardMedia
           component="img"
           height="140"
@@ -59,7 +59,7 @@ function NftCard(props) {
         </CardContent>
       </div>
       <CardActions>
-        <Button  onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
+        <Button variant="outlined" onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
         <IconButton onClick={()=>{toggleLike()}}>
           {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </IconButton>

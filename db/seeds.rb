@@ -25,14 +25,14 @@ Relationship.create(follower_id:u3.id, followee_id:u1.id)
 Relationship.create(follower_id:u4.id, followee_id:u1.id)
 Relationship.create(follower_id:u2.id, followee_id:u1.id)
 
-100.times do
+50.times do
     name = Faker::Name.name
     username = Faker::Internet.username
     email = Faker::Internet.free_email
     password = Faker::Internet.password
     image = Faker::Avatar.image
     newUser = User.create(name:name, username:username, email:email, password:password, image:image)
-    2.times do
+    5.times do
         p = Faker::Commerce.price(range: 1.00..10000.00)
         i = "https://picsum.photos/id/#{rand(1000)}/500"
         d = Faker::ChuckNorris.fact
