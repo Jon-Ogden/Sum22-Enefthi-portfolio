@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :nfts do
       resources :sales
+      
+      
     end
     get '/users', to:'users#all_users'
     post '/relationships', to:'relationships#create'

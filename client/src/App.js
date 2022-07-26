@@ -12,6 +12,10 @@ import DashBoard from "./components/auth/MainPage";
 import Settings from "./components/auth/Settings";
 import Market from "./components/shared/Market";
 import MarketDetail from "./components/shared/MarketDetail";
+import Payment from "./components/auth/Payment";
+import Saved from "./components/auth/Saved";
+import CreateNft from "./components/auth/CreateNft";
+import MyUser from "./components/auth/UserProfile";
 import Profile from "./components/shared/Profile";
 
 const App = () => {
@@ -31,6 +35,13 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/nftpage" element={<NftPage />} />
+            <Route path="/marketdetail" element={<MarketDetail />} />
+            <Route path="/otheruser" element={<OtherUser />} />
+            <Route path="/myuser" element={<MyUser />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/saved" element={<Saved />} />
+            <Route path="/createnft" element={<CreateNft />} />
             <Route path="/market" element={<Market />} />
             <Route path="/MarketDetail/:id" element={<MarketDetail />} />
             <Route path="/profile/:id" element={<Profile />} />

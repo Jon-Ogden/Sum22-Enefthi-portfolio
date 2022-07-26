@@ -4,6 +4,8 @@ import Avatar from "@mui/material/Avatar";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
@@ -11,34 +13,29 @@ import * as IoIcons from "react-icons/io";
 export const SidebarData = [
   {
     title: "User",
-    path: "/",
+    path: "/myuser",
     icon: <Avatar />,
     cName: "nav-text",
   },
   {
     title: "Home",
-    path: "/",
+    path: "/dashboard",
     icon: <HomeIcon />,
     cName: "nav-text",
   },
   {
-    title: "Reports",
-    path: "/reports",
-    icon: <InsertPhotoIcon />,
+    title: "Create An Nft",
+    path: "/createnft",
+    icon: <FileUploadIcon />,
     cName: "nav-text",
   },
   {
-    title: "Products",
+    title: "Market Place",
     path: "/products",
-    icon: <InsertPhotoIcon />,
+    icon: <StorefrontIcon />,
     cName: "nav-text",
   },
-  {
-    title: "Team",
-    path: "/team",
-    icon: <InsertPhotoIcon />,
-    cName: "nav-text",
-  },
+
   {
     title: "Settings",
     path: "/settings",
