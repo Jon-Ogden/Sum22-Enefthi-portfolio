@@ -1,9 +1,9 @@
 import { Avatar, Button } from "@mui/material";
 
-const UserCard = () => {
+const UserCard = (props) => {
   return (
     <div>
-      <Avatar />
+      <Avatar src={props.avatar}/>
       <br />
       <p>Webiste</p>
       <br />
