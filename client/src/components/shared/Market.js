@@ -10,18 +10,18 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import { IconButton, Button } from '@mui/material'
+import LoadingSpinner from '../../assets/Loadingspinner'
 
 
 
 export default function Market(){
-    const { users } = useContext(DataContext)
+    const { users, isLoading } = useContext(DataContext)
     const { user } = useContext(AuthContext)
     const [ normData, setNormData] = useState([])
     const [ userLikes, setUserLikes] = useState([])
     const [ nfts, setNfts] = useState([])
     const [ currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
-
     const getInitData = async(id) => {
         try {
           let res1 = await axios.get(`/api/users/${id}/liked_nfts`)
@@ -33,6 +33,18 @@ export default function Market(){
           alert(error)
         }
       }
+
+    const getInitDataNoUser = async() => {
+      try {
+        let res2 = await axios.get(`/api/nfts/page/${1}`)
+        console.log(res2)
+        setNormData(normalize(res2.data.nfts))
+        setTotalPages(res2.data.total_pages)
+      } catch(error){
+        alert(error)
+      }
+    }
+    
 
       const paginateNft = async(pagenum = 1) => {
         try {
@@ -47,6 +59,8 @@ export default function Market(){
     useEffect(()=>{
         if(user){
             getInitData(user.id)
+        } else {
+            getInitDataNoUser()
         }
     },[])
 
@@ -75,7 +89,7 @@ export default function Market(){
         }
     }
 
-    const normalize = (nfts, userlikes) => {
+    const normalize = (nfts, userlikes = []) => {
         if(userlikes.length <= 0){
             return nfts.map(c => ({...c, liked:false}))
         }
@@ -92,19 +106,25 @@ export default function Market(){
     }
 
     const renderCards = () => {
-        return normData.map((c) => {
-            return <NftCard 
-            key={c.id}
-            id={c.id}
-            title={c.title}
-            price={c.price}
-            image={c.image}
-            creator={users.filter(x => x.id == c.creator_id)[0].name}
-            liked={c.liked}
-            like_id={c.like_id}
-            />
-            
-        })
+        if(isLoading) {
+            return <LoadingSpinner />
+        }else {
+            return normData.map((c) => {
+                return <NftCard 
+                key={c.id}
+                id={c.id}
+                title={c.title}
+                price={c.price}
+                image={c.image}
+                creator={users.filter(x => x.id == c.creator_id)[0].name}
+                liked={c.liked}
+                like_id={c.like_id}
+                />
+                
+            })
+        }
+        
+      
     }
 
     return(

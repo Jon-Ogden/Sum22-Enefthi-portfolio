@@ -35,9 +35,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/nftpage" element={<NftPage />} />
             <Route path="/marketdetail" element={<MarketDetail />} />
-            <Route path="/otheruser" element={<OtherUser />} />
             <Route path="/myuser" element={<MyUser />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/saved" element={<Saved />} />

@@ -33,7 +33,7 @@ export const SidebarData = [
   },
   {
     title: "Market Place",
-    path: "/products",
+    path: "/market",
     icon: <StorefrontIcon />,
     cName: "nav-text",
   },
