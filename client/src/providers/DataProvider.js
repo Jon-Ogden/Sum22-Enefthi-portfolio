@@ -9,6 +9,8 @@ const DataProvider = ({children})=> {
     const [sales, setSales] = useState([])
     const [liked_nfts, setLiked_nfts] = useState([])
     const [relationships, setRelationships] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
 
     const getThings = async() => {
         try{
@@ -17,12 +19,13 @@ const DataProvider = ({children})=> {
             let sales = await axios.get(`/api/sales`)
             let liked_nfts = await axios.get(`/api/liked_nfts`)
             let relationships = await axios.get(`/api/relationships`)
-            
+            console.log(users)
             setNfts(nfts.data)
             setUsers(users.data)
             setSales(sales.data)
             setLiked_nfts(liked_nfts.data)
             setRelationships(relationships.data)
+            setIsLoading(false)
         } catch(error){
             console.log(error)
         }
@@ -111,7 +114,7 @@ const DataProvider = ({children})=> {
     }
 
     return (
-        <DataContext.Provider value={{nfts, users, sales, liked_nfts, setLiked_nfts, relationships,
+        <DataContext.Provider value={{nfts, users, sales, liked_nfts, setLiked_nfts, relationships, isLoading, 
         deleteThing, updateNft, newNft, updateSale, newSale, getUserRelationships,
         newRelationship, getNftLikes, getUserLikes, newLike, paginateNft}}>
             {children}

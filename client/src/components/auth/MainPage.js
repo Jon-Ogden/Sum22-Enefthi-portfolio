@@ -8,6 +8,8 @@ import RecentSale from "../../Cards/RecentSale";
 import TopCollection from "../../Cards/TopCollection";
 const DashBoard = () => {
   const { user } = useContext(AuthContext);
+
+
   return (
     <div>
       <div className="parent">
