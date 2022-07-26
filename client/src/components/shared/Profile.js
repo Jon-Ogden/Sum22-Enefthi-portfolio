@@ -14,11 +14,11 @@ import { DataContext } from "../../providers/DataProvider";
 
 const Profile = () => {
   const {user} = useContext(AuthContext)
-  const {nfts} = useContext(DataContext)
+  const {nfts, isLoading} = useContext(DataContext)
   const [display, setDisplay] = useState("created")
   const params = useParams();
   const [creator, setCreator] = useState({}) 
-  const [loading, setLoading] = useState(true)
+  //const [loading, setLoading] = useState(true)
   const [creatorNfts, setCreatorNfts] = useState([])
   const [normData, setNormData] = useState([])
   const [userLikes, setUserLikes] = useState([])
@@ -37,20 +37,17 @@ const Profile = () => {
   async function getCreator(){
     let res = await axios.get(`/api/users/${params.id}`)
     setCreator(res.data)
-    setLoading(false)
+    //setLoading(false)
   }
 
   useEffect(()=>{
     getCreator();
-    console.log(nfts)
     setCreatorNfts(nfts.filter(c => c.creator_id == params.id))
     if(user){
       getUserLikes(user.id)
     }
     setNormData(normalize(nfts.filter(c => c.creator_id == params.id), userLikes))
-  },[])
-  console.log(normData)
-  console.log(creatorNfts)
+  },[isLoading])
 
   const normalize = (nfts, userlikes) => {
     if(userlikes.length <= 0){
@@ -69,6 +66,9 @@ const Profile = () => {
 }
 
 const renderCreatorCards = () => {
+  if(isLoading){
+    return (<div><h1 className="shiftleft">loading...</h1></div>)
+  } 
   return normData.map((c) => {
       return <NftCard 
       key={c.id}
@@ -83,9 +83,7 @@ const renderCreatorCards = () => {
   })
 }
 
-  if(loading){
-    return (<div><h1 className="shiftleft">loading...</h1></div>)
-  } 
+ 
   if(display === "created"){
   return (
     <div>
