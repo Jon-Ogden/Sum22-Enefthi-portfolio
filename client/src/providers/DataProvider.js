@@ -103,10 +103,11 @@ const DataProvider = ({children})=> {
         alert(error)
       }
     }
-    const newLike = (info) => {
-    let newLikes = [...liked_nfts, info]
-    setLiked_nfts(newLikes)
-    axios.post(`/api/liked_nfts/`,info)
+    const newLike = async(info) => {
+        let newLikes = [...liked_nfts, info]
+        setLiked_nfts(newLikes)
+        let res = axios.post(`/api/liked_nfts/`,info)
+        return res.data
     }
 
     return (

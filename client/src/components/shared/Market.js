@@ -5,6 +5,12 @@ import { useContext, useEffect, useState } from 'react'
 import { DataContext } from '../../providers/DataProvider'
 import { AuthContext } from '../../providers/AuthProvider'
 import axios from 'axios'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import LastPageIcon from '@mui/icons-material/LastPage';
+import { IconButton, Button } from '@mui/material'
+
 
 
 export default function Market(){
@@ -13,6 +19,8 @@ export default function Market(){
     const [ normData, setNormData] = useState([])
     const [ userLikes, setUserLikes] = useState([])
     const [ nfts, setNfts] = useState([])
+    const [ currentPage, setCurrentPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(1)
 
     const getInitData = async(id) => {
         try {
@@ -20,6 +28,7 @@ export default function Market(){
           let res2 = await axios.get(`/api/nfts/page/${1}`)
           setUserLikes(res1.data)
           setNormData(normalize(res2.data.nfts, res1.data))
+          setTotalPages(res2.data.total_pages)
         } catch(error){
           alert(error)
         }
@@ -28,7 +37,8 @@ export default function Market(){
       const paginateNft = async(pagenum = 1) => {
         try {
           let res = await axios.get(`/api/nfts/page/${pagenum}`)
-          return res.data
+          setNormData(normalize(res.data.nfts, userLikes))
+          setTotalPages(res.data.total_pages)
         } catch (error) {
           alert(error)
         }
@@ -40,8 +50,32 @@ export default function Market(){
         }
     },[])
 
+    const firstPage = () => {
+        if(currentPage > 1){
+            paginateNft(1)
+            setCurrentPage(1)
+        }
+    }
+    const previousPage = () => {
+        if(currentPage > 1){
+            setCurrentPage(currentPage - 1)
+            paginateNft(currentPage - 1)
+        }
+    }
+    const nextPage = () => {
+        if(currentPage < totalPages){
+            setCurrentPage(currentPage + 1)
+            paginateNft(currentPage + 1)
+        }
+    }
+    const lastPage = () => {
+        if(currentPage < totalPages){
+            setCurrentPage(totalPages)
+            paginateNft(totalPages)
+        }
+    }
+
     const normalize = (nfts, userlikes) => {
-        console.log(userlikes)
         if(userlikes.length <= 0){
             return nfts.map(c => ({...c, liked:false}))
         }
@@ -50,7 +84,6 @@ export default function Market(){
 
          return nfts.map((c) => {
             if(arr.includes(c.id)){
-                console.log(userlikes.find((x)=>{return x.nft_id == c.id}).id)
                 return ({...c, liked:true, like_id:userlikes.find((x)=>{return x.nft_id == c.id}).id})
             } else {
                 return ({...c, liked:false, like_id:undefined})
@@ -79,6 +112,19 @@ export default function Market(){
             <Title>DISCOVER</Title>
             <div className="marketContainer">
                 {renderCards()}
+            </div>
+            <div className='pageController'>
+                <Button onClick={()=>{firstPage()}} variant="outlined" startIcon={<FirstPageIcon />} >
+                </Button>
+                <Button onClick={()=>{previousPage()}} variant="outlined" startIcon={<ChevronLeftIcon />} >
+                </Button>
+                <Button variant="outlined">
+                    {currentPage}
+                </Button>
+                <Button onClick={()=>{nextPage()}} variant="outlined" startIcon={<ChevronRightIcon />} >
+                </Button>
+                <Button onClick={()=>{lastPage()}} variant="outlined" startIcon={<LastPageIcon />} >
+                </Button>
             </div>
         </div>
     )

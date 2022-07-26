@@ -1,6 +1,6 @@
 import "../Css/userbanner.css";
 
-const UserBanner = () => {
+const UserBanner = (props) => {
   return (
     <div className="userbanner">
       <img
