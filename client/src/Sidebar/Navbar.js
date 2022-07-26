@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "../Css/navbar.css";
 import NavbarButtons from "./NavbarButtons";
-import { Input } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-
+import TextField from "@mui/material/TextField";
+import NewNavButtons from "./NewNavButtons";
 export default function Navbar() {
   const { logout } = useContext(AuthContext);
 
@@ -17,11 +17,17 @@ export default function Navbar() {
       <IconContext.Provider value={{ color: "#FFF" }}>
         <div className="navbar">
           <div className="input">
-            <Input className="serchinput">Hello</Input>
+            {/* <Input className="serchinput">Hello</Input> */}
+            <TextField
+              className="serchinput"
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+              size="medium"
+            />
           </div>
           <div className="rightbuttons">
-            <Avatar />
-            <NavbarButtons />
+            <NewNavButtons />
           </div>
         </div>
         <nav className={"nav-menu active"}>

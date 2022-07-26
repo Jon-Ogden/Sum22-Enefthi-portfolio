@@ -9,6 +9,8 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 export const SidebarData = [
   {
@@ -31,7 +33,7 @@ export const SidebarData = [
   },
   {
     title: "Market Place",
-    path: "/products",
+    path: "/market",
     icon: <StorefrontIcon />,
     cName: "nav-text",
   },
@@ -42,6 +44,7 @@ export const SidebarData = [
     icon: <SettingsIcon />,
     cName: "nav-text",
   },
+
   {
     title: "Logout",
     path: "",
