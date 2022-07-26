@@ -12,7 +12,7 @@ import DashBoard from "./components/auth/MainPage";
 import Settings from "./components/auth/Settings";
 import Market from "./components/shared/Market";
 import MarketDetail from "./components/shared/MarketDetail";
-import OtherUser from "./components/shared/OtherUser";
+import Profile from "./components/shared/Profile";
 
 const App = () => {
   const location = useLocation();
@@ -32,8 +32,8 @@ const App = () => {
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/market" element={<Market />} />
-            <Route path="/MarketDetail" element={<MarketDetail />} />
-            <Route path="/OtherUser" element={<OtherUser />} />
+            <Route path="/MarketDetail/:id" element={<MarketDetail />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
             </Route>

@@ -17,4 +17,6 @@
   text-align: center;
   margin: 20px;
 }
-
+.morenft{
+  overflow-y: auto;
+}
