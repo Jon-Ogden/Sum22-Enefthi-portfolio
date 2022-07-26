@@ -11,7 +11,7 @@ import Navbar from "./Sidebar/Navbar";
 import DashBoard from "./components/auth/MainPage";
 import Settings from "./components/auth/Settings";
 import Market from "./components/shared/Market";
-import NftPage from "./components/testing/NftPage";
+// import NftPage from "./components/testing/NftPage";
 import MarketDetail from "./components/shared/MarketDetail";
 import OtherUser from "./components/shared/OtherUser";
 import Payment from "./components/auth/Payment";
