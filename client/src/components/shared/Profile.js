@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import { DataContext } from "../../providers/DataProvider";
+import { Text, Title } from "../styled-components/Fonts";
 
 const Profile = () => {
   const {user} = useContext(AuthContext)
@@ -18,36 +19,69 @@ const Profile = () => {
   const [display, setDisplay] = useState("created")
   const params = useParams();
   const [creator, setCreator] = useState({}) 
-  //const [loading, setLoading] = useState(true)
-  const [creatorNfts, setCreatorNfts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
   const [normData, setNormData] = useState([])
+  const [normData2, setNormData2] = useState([])
+  const [ownedNormData, setOwnedNormData] = useState([])
+  const [likedNormData, setLikedNormData] = useState([])
+  const [creatorLikes, setCreatorLikes] = useState([])
   const [userLikes, setUserLikes] = useState([])
 
 
-  const getUserLikes = async(id) => {
+  const getInitDataUser = async(id) => {
     try {
-      let res = await axios.get(`/api/users/${id}/liked_nfts`)
-      setUserLikes(res.data)
-      const likeArr = res.data.map(c => c.nft_id)
+      let res1 = await axios.get(`/api/users/${id}/liked_nfts`)
+      let res2 = await axios.get(`/api/users/${params.id}/liked_nfts`)
+      let res3 = await axios.get(`/api/users/${params.id}`)
+      setCreator(res3.data)
+      setUserLikes(res2.data)
+      const likeArr = res2.data.map(c => c.nft_id)
+      setNormData(normalize(nfts.filter(c => c.creator_id == params.id), res1.data))
+      setOwnedNormData(normalize(nfts.filter(c => c.user_id == params.id), res1.data))
+      setLikedNormData(normalize(nfts.filter(c => likeArr.includes(c.id)), res1.data))
+      setLoading(false)
     } catch(error){
       alert(error)
     }
   }
 
-  async function getCreator(){
-    let res = await axios.get(`/api/users/${params.id}`)
-    setCreator(res.data)
-    //setLoading(false)
+  const getInitDataNoUser = async() => {
+    try {
+      let res1 = await axios.get(`/api/users/${params.id}`)
+      let res2 = await axios.get(`/api/users/${params.id}/liked_nfts`)
+      const likeArr = res2.data.map(c => c.nft_id)
+      setCreator(res1.data)
+      setNormData(normalize(nfts.filter(c => c.creator_id == params.id), []))
+      setOwnedNormData(normalize(nfts.filter(c => c.user_id == params.id), []))
+      setLikedNormData(normalize(nfts.filter(c => likeArr.includes(c.id)), []))
+      setLoading(false)
+    } catch (error) {
+      alert(error)
+    }
   }
 
+
   useEffect(()=>{
-    getCreator();
-    setCreatorNfts(nfts.filter(c => c.creator_id == params.id))
     if(user){
-      getUserLikes(user.id)
+      getInitDataUser(user.id)
+    } else {
+      getInitDataNoUser()
     }
-    setNormData(normalize(nfts.filter(c => c.creator_id == params.id), userLikes))
-  },[isLoading])
+  },[isLoading, loading])
+
+  useEffect(()=>{
+    if(search !== ""){
+      if(display == "created"){
+        setNormData2(normData.filter(c => c.title.includes(search)))
+      } else if(display == "collection"){
+        setNormData2(ownedNormData.filter(c => c.title.includes(search)))
+      } else if(display == "liked"){
+        setNormData2(likedNormData.filter(c => c.title.includes(search)))
+      }
+    }
+
+  },[search])
 
   const normalize = (nfts, userlikes) => {
     if(userlikes.length <= 0){
@@ -66,9 +100,31 @@ const Profile = () => {
 }
 
 const renderCreatorCards = () => {
-  if(isLoading){
+  if(isLoading || loading){
     return (<div><h1 className="shiftleft">loading...</h1></div>)
   } 
+  if(search.length > 0){
+    if(normData2.length == 0){
+      return (<div><Text>No NFTs match this search</Text></div>)
+    }
+    return (
+      normData2.map((c) => {
+        return <NftCard 
+        key={c.id}
+        id={c.id}
+        title={c.title}
+        price={c.price}
+        image={c.image}
+        creator={creator.name}
+        liked={c.liked}
+        like_id={c.like_id}
+        />
+    })
+    )
+  } else if(display === "created"){
+    if(normData.length == 0){
+      return (<div><Text>This User has no Created NFTs.</Text></div>)
+    }
   return normData.map((c) => {
       return <NftCard 
       key={c.id}
@@ -81,10 +137,43 @@ const renderCreatorCards = () => {
       like_id={c.like_id}
       />
   })
+} else if(display === "collection"){
+  if(ownedNormData.length == 0){
+    return (<div><Text>This User owns no NFTs.</Text></div>)
+  }
+  return ownedNormData.map((c) => {
+    return <NftCard 
+    key={c.id}
+    id={c.id}
+    title={c.title}
+    price={c.price}
+    image={c.image}
+    creator={creator.name}
+    liked={c.liked}
+    like_id={c.like_id}
+    />
+})
+} else if(display === "liked"){
+  if(likedNormData.length == 0){
+    return (<div><Text>This User has no liked NFTs.</Text></div>)
+  }
+  return likedNormData.map((c) => {
+      return <NftCard 
+      key={c.id}
+      id={c.id}
+      title={c.title}
+      price={c.price}
+      image={c.image}
+      creator={creator.name}
+      liked={c.liked}
+      like_id={c.like_id}
+      />
+  })
+}
 }
 
  
-  if(display === "created"){
+ 
   return (
     <div>
       <div className="shiftleft">
@@ -93,11 +182,11 @@ const renderCreatorCards = () => {
           <UserCard avatar={creator.image}/>
         </div>
         <div className="nftbar grouping">
-          <Button variant="contained">Created</Button>
-          <Button onClick={()=>{setDisplay("collection")}} variant="outlined">Collection</Button>
-          <Button onClick={()=>{setDisplay("liked")}} variant="outlined">Liked</Button>
+          <Button variant={display == "created" ? "contained" : "outlined"} onClick={()=>{setDisplay("created")}}>Created</Button>
+          <Button variant={display == "collection" ? "contained" : "outlined"} onClick={()=>{setDisplay("collection")}}>Collection</Button>
+          <Button variant={display == "liked" ? "contained" : "outlined"} onClick={()=>{setDisplay("liked")}}>Liked</Button>
           <div className="search">
-            <input></input>
+            <input value={search} onChange={(e) => {setSearch(e.target.value)}}></input>
           </div>
         </div>
         <div className="nftstack">
@@ -105,49 +194,6 @@ const renderCreatorCards = () => {
         </div>
       </div>
       </div>)
-  } else if(display === "collection"){
-    return (
-      <div>
-        <div className="shiftleft">
-          <UserBanner />
-          <div className="usercard">
-            <UserCard avatar={creator.image}/>
-          </div>
-          <div className="nftbar grouping">
-            <Button onClick={()=>{setDisplay("created")}} variant="outlined">Created</Button>
-            <Button variant="contained">Collection</Button>
-            <Button onClick={()=>{setDisplay("liked")}} variant="outlined">Liked</Button>
-            <div className="search">
-              <input></input>
-            </div>
-          </div>
-          <div className="nftstack">
-            {renderCreatorCards()}
-          </div>
-        </div>
-        </div>)
-  } else if(display === "liked"){
-    return (
-      <div>
-        <div className="shiftleft">
-          <UserBanner />
-          <div className="usercard">
-            <UserCard avatar={creator.image}/>
-          </div>
-          <div className="nftbar grouping">
-            <Button onClick={()=>{setDisplay("created")}} variant="outlined">Created</Button>
-            <Button onClick={()=>{setDisplay("collection")}} variant="outlined">Collection</Button>
-            <Button variant="contained">Liked</Button>
-            <div className="search">
-              <input></input>
-            </div>
-          </div>
-          <div className="nftstack">
-            {renderCreatorCards()}
-          </div>
-        </div>
-        </div>)
-  }
   
   
 };

@@ -37,7 +37,6 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/marketdetail" element={<MarketDetail />} />
             <Route path="/myuser" element={<MyUser />} />
-            <Route path="/payment" element={<Payment />} />
             <Route path="/saved" element={<Saved />} />
             <Route path="/createnft" element={<CreateNft />} />
             <Route path="/market" element={<Market />} />
@@ -45,6 +44,7 @@ const App = () => {
             <Route path="/profile/:id" element={<Profile />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
+              <Route path="/payment/:id" element={<Payment />} />
             </Route>
             <Route path="/*" element={<NoMatch />} />
           </Routes>
