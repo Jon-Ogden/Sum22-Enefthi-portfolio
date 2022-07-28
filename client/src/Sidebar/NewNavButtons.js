@@ -1,6 +1,6 @@
 import { Avatar, Button } from "@mui/material";
 import MenuListComposition from "../components/shared/ProfilePopUp.tsx";
-import "../Css/NewNavButtons.css";
+import "../Css/NewNavButtons.Css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
