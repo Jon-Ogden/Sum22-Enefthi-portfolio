@@ -109,7 +109,7 @@ const MarketDetail = () => {
         <Text>Created by: {creator.name}</Text>
         <hr />
         <h4>Price: ${nft.price}</h4>
-        <Button variant="outlined">Buy</Button>
+        <Button variant="outlined" onClick={()=>{navigate(`/payment/${params.id}`)}}>Buy</Button>
         <IconButton onClick={()=>{toggleLike()}}>
           {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </IconButton>

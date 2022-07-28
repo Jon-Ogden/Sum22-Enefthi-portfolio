@@ -59,7 +59,7 @@ function NftCard(props) {
         </CardContent>
       </div>
       <CardActions>
-        <Button variant="outlined" onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
+        <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button>
         <IconButton onClick={()=>{toggleLike()}}>
           {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </IconButton>

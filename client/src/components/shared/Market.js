@@ -93,6 +93,19 @@ export default function Market(){
         if(userlikes.length <= 0){
             return nfts.map(c => ({...c, liked:false}))
         }
+        if(user){
+            let marketNfts = nfts.filter(c => c.user_id !== user.id)
+            const arr = userlikes.map(c => c.nft_id)
+            const idArr = userLikes.map(c => c.id)
+
+         return marketNfts.map((c) => {
+            if(arr.includes(c.id)){
+                return ({...c, liked:true, like_id:userlikes.find((x)=>{return x.nft_id == c.id}).id})
+            } else {
+                return ({...c, liked:false, like_id:undefined})
+            } 
+         })
+        }
         const arr = userlikes.map(c => c.nft_id)
         const idArr = userLikes.map(c => c.id)
 
