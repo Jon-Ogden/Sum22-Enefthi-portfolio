@@ -1,15 +1,26 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import HomeNavbarButtons from "../shared/HomeNav";
+import "../../Css/register.css"
+import Button from "../styled-components/Button";
+import { useNavigate } from "react-router";
+
+// import "../../Css/Register.css"
 
 const Register = () => {
   const { register } = useContext(AuthContext);
-  const [email, setEmail] = useState("example@notreal.com");
-  const [password, setPassword] = useState("password");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("password");
-  const [name, setName] = useState("username");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [name, setName] = useState("");
+  let navigate = useNavigate()
+
+
+
+
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     if (password.length < 6) {
       alert("password is to short");
@@ -23,41 +34,59 @@ const Register = () => {
   };
   return (
     <>
-      <HomeNavbarButtons />
+    <div className="imgblock">        <img src="https://api.time.com/wp-content/uploads/2022/07/NASA-james-webb-telescope-07.jpg" />
+</div>
+    <div className="formreg">
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <label>email</label>
         <input
           required
           autoFocus
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
         />
-        <label>Username</label>
+        <br />
+        <br />
         <input
           required
           autoFocus
           value={name}
           onChange={(e) => setName(e.target.value)}
+          placeholder="Full Name"
+
         />
-        <label>password</label>
+        <br />
+        <br />
         <input
           minLength={6}
           required
           autoFocus
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+
         />
-        <label>password confirmation</label>
+        <br />
+        <br />
         <input
           minLength={6}
           required
           autoFocus
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
+          placeholder="Password confirmation"
+
         />
-        <button type="submit">register</button>
+        <br />
+        <br />
+        <Button type="submit">register</Button>
       </form>
+      <hr />
+      <Button event={() => {
+              navigate("/login");
+            }}>Login</Button>
+    </div>
     </>
   );
 };

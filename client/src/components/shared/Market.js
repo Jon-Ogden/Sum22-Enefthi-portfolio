@@ -13,7 +13,6 @@ import { IconButton, Button } from '@mui/material'
 import LoadingSpinner from '../../assets/Loadingspinner'
 
 
-
 export default function Market(){
     const { users, isLoading } = useContext(DataContext)
     const { user } = useContext(AuthContext)

@@ -5,6 +5,10 @@ import "../../Css/landing.css";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
 
+
+
+
+// Not in use
 const Landing = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);

@@ -1,10 +1,10 @@
 .nftdisplay{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   margin-left: 5%;
   height: 400px;
-  width: 70%;
+  width: 80%;
 }
 .parent {
   margin-left: 12.5%;
@@ -29,4 +29,5 @@
 .creatorcard {
   height: 10%;
   margin-top: 10%;
+  z-index: -900;
 }
