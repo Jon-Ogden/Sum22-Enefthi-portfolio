@@ -17,8 +17,8 @@
 }
 
 .search {
-  margin-right: -60%;
-  margin-top: -2%;
+  right: 10px;
+  position: absolute;
 }
 
 .nftstack{
@@ -28,4 +28,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.grouping{
+  display: flex;
+  flex-direction: row;
 }
