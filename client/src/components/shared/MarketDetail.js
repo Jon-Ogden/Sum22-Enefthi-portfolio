@@ -17,7 +17,7 @@ import { useEffect } from "react";
 const MarketDetail = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const { nfts, users, deleteThing, newLike, liked_nfts, setLiked_nfts } = useContext(DataContext)
+  const { nfts, users, deleteThing, newLike, liked_nfts, setLiked_nfts ,isLoading } = useContext(DataContext)
   const { user } = useContext(AuthContext)
   const nft = nfts.filter(c => c.id == params.id)[0]
   const creator = users.filter(c => nft.creator_id == c.id)[0]
@@ -25,7 +25,6 @@ const MarketDetail = () => {
   const [like_id, setLike_id] = useState(userLikes.filter(c => c.nft_id == params.id)[0])
   const [ normData, setNormData] = useState([])
   const creator_nfts = nfts.filter(c => c.creator_id == nft.creator_id && c.id !== nft.id)
-  
   const [liked, setLiked] = useState(false)
 
 
@@ -48,7 +47,7 @@ const MarketDetail = () => {
       getUserLikes(user.id)
     }
     setNormData(normalize(creator_nfts, userLikes))
-  },[])
+  },[isLoading])
 
   const toggleLike = () => {
     if(!liked){
@@ -79,6 +78,7 @@ const MarketDetail = () => {
 }
 
   const renderCreatorCards = () => {
+
     return normData.map((c) => {
         return <NftCard 
         key={c.id}
@@ -93,7 +93,9 @@ const MarketDetail = () => {
         
     })
 }
-
+  if(isLoading){
+    return (<div><h1 className="shiftleft">loading...</h1></div>)
+  } 
   return (
     <div className="shiftleft">
       <img
