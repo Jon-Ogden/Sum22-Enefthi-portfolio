@@ -1,4 +1,6 @@
 .navrightside {
-  outline: black 1px solid;
+  display: flex;
+  flex-direction: row;
+  margin-left: 180%;
 }
 

@@ -18,7 +18,8 @@ const rows = [
 ];
 const TopCollection = () => {
   return (
-    <div className="topcollection">
+    <div className="topcollection"
+    >
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

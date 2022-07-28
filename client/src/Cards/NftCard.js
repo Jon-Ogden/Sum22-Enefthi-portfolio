@@ -15,6 +15,7 @@ import { useContext } from "react";
 import { DataContext } from "../providers/DataProvider";
 import { AuthContext } from "../providers/AuthProvider";
 import "../Css/letswork.css";
+import { useEffect } from "react";
 
 function NftCard(props) {
   const navigate = useNavigate();

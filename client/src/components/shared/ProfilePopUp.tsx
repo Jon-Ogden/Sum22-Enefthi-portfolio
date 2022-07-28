@@ -15,6 +15,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import Switch from '@mui/material/Switch';
+import "../../Css/dropdown.css"
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
@@ -74,22 +75,26 @@ export default function MenuListComposition() {
           placement="bottom-start"
           transition
           disablePortal
+          className="dropdown"
         >
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               style={{
                 transformOrigin:
-                  placement === "bottom-start" ? "left top" : "left bottom"
+                  "left top" 
               }}
             >
-              <Paper>
+              <Paper
+               
+              >
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
                     autoFocusItem={open}
                     id="composition-menu"
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
+                    
                   >
                     <Avatar />
                     <MenuItem onClick={handleClose}>PROFILE NAME</MenuItem>
