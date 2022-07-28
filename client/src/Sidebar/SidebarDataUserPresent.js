@@ -11,20 +11,18 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { UserAvatarData } from "./UserAvatarData";
 
-export const SidebarData = [
+ const SidebarDataUserPresent = [
+  
+
   {
-    title: "User",
-    path: "/myuser",
-    icon: <Avatar />,
-    cName: "nav-text",
-  },
-  {
-    title: "Home",
+    title: "Dashboard",
     path: "/dashboard",
     icon: <HomeIcon />,
     cName: "nav-text",
   },
+
   {
     title: "Create An Nft",
     path: "/createnft",
@@ -39,16 +37,15 @@ export const SidebarData = [
   },
 
   {
-    title: "Settings",
-    path: "/settings",
-    icon: <SettingsIcon />,
-    cName: "nav-text",
-  },
-
-  {
     title: "Logout",
     path: "",
     icon: <LogoutIcon />,
     cName: "nav-text",
   },
 ];
+
+
+
+
+
+export default{SidebarDataUserPresent}

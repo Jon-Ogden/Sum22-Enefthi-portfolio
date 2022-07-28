@@ -1,5 +1,4 @@
 import "./App.css";
-import Landing from "./components/shared/Landing";
 import NoMatch from "./components/shared/NoMatch";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
@@ -8,7 +7,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UserAccount from "./components/shared/UserAccount";
 import FetchUser from "./components/auth/FetchUser";
 import Navbar from "./Sidebar/Navbar";
-import DashBoard from "./components/auth/MainPage";
+import DashBoard from "./components/auth/Dashboard";
 import Settings from "./components/auth/Settings";
 import Market from "./components/shared/Market";
 import MarketDetail from "./components/shared/MarketDetail";
@@ -23,17 +22,16 @@ const App = () => {
 
   return (
     <div>
-      {location.pathname !== "/" &&
+      {
         location.pathname !== "/login" &&
         location.pathname !== "/register" && <Navbar />}
 
       <div>
         <FetchUser>
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<DashBoard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/marketdetail" element={<MarketDetail />} />
             <Route path="/myuser" element={<MyUser />} />

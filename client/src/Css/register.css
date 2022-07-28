@@ -1,0 +1,30 @@
+.imgblock{
+  border: 1px solid black;
+  float: right;
+  width: 50%;
+  height: 937px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.formreg{
+  margin-left: 12%;
+  margin-top: 11.5%;
+  float: left;
+  text-align: center;
+  width: 20%;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.formreg > h1 {
+  text-align: center;
+  margin-left: -2%;
+}
+
+.formreg > button {
+  width: 200px;
+}

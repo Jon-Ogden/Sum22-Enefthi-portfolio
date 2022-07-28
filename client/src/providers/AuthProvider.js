@@ -35,7 +35,7 @@ const AuthProvider = ({children})=> {
         try{
             let res = await axios.post('/api/auth', user)
             console.log(res)
-            navigate('/')
+            navigate('/login')
         }catch(err){
             alert('failed to register new account')
             console.log(err)

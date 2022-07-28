@@ -6,33 +6,38 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
+import { useNavigate } from "react-router";
 
-export default function MediaCard() {
+export default function MediaCard(props) {
+  const navigate = useNavigate()
+
   return (
     <Card sx={{ width: 280, maxHeight: 500 }}>
       <CardMedia
         component="img"
         height="140"
-        image="https://static.news.bitcoin.com/wp-content/uploads/2021/01/OVofab6V-esiyicbxyaqnh8u.jpeg"
+        image={props.image}
         alt="NFT IMAGE"
       />
-      <Avatar alt="Profile Photo" src="" />
+      <Avatar src={props.avatar}/>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Creator Name
+          {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          @creatorusername
+          @{props.username}
         </Typography>
         <br />
       </CardContent>
       <CardActions>
-        <Button size="small">Follow</Button>
+        <Button onClick={()=>{
+          navigate(`otherUser/${props.id}`)
+        }}>Follow</Button>
       </CardActions>
       <CardContent>
         <hr />
         <Typography variant="body2" color="text.secondary">
-          lorem ipsum
+          {props.description}
         </Typography>
       </CardContent>
     </Card>

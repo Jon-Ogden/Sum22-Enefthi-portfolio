@@ -26,7 +26,7 @@ const HomeNavbarButtons = () => {
         <Button
           className="header_right"
           event={() => {
-            navigate("/dashboard");
+            navigate("/");
           }}
         >
           DashBoard

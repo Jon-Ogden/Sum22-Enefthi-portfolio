@@ -57,8 +57,7 @@ const Profile = () => {
           <NftCard />
           <NftCard />
         </div>
-      </div>)
-  }
+      </div>
   </div>
   );
 };
