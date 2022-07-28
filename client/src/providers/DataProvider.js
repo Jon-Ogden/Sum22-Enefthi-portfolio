@@ -19,7 +19,6 @@ const DataProvider = ({children})=> {
             let sales = await axios.get(`/api/sales`)
             let liked_nfts = await axios.get(`/api/liked_nfts`)
             let relationships = await axios.get(`/api/relationships`)
-            console.log(users)
             setNfts(nfts.data)
             setUsers(users.data)
             setSales(sales.data)

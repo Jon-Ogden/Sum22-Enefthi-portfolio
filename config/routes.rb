@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :api do
+    get 'braintree_token', to:'braintree#token'
+    post 'payment', to:'braintree#payment'
     resources :nfts do
       resources :sales
       
