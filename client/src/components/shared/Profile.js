@@ -119,6 +119,8 @@ const renderCreatorCards = () => {
         creator={nftCreator.name}
         liked={c.liked}
         like_id={c.like_id}
+        for_sale={c.for_sale}
+        owner={c.user_id}
         />
     })
     )
@@ -137,6 +139,8 @@ const renderCreatorCards = () => {
       creator={nftCreator.name}
       liked={c.liked}
       like_id={c.like_id}
+      for_sale={c.for_sale}
+      owner={c.user_id}
       />
   })
 } else if(display === "collection"){
@@ -154,6 +158,8 @@ const renderCreatorCards = () => {
     creator={nftCreator.name}
     liked={c.liked}
     like_id={c.like_id}
+    for_sale={c.for_sale}
+    owner={c.user_id}
     />
 })
 } else if(display === "liked"){
@@ -171,6 +177,8 @@ const renderCreatorCards = () => {
       creator={nftCreator.name}
       liked={c.liked}
       like_id={c.like_id}
+      for_sale={c.for_sale}
+      owner={c.user_id}
       />
   })
 }

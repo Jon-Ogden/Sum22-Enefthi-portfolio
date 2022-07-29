@@ -89,6 +89,8 @@ const MarketDetail = () => {
         creator={users.filter(x => x.id == c.creator_id)[0].name}
         liked={c.liked}
         like_id={c.like_id}
+        for_sale={c.for_sale}
+        owner={c.user_id}
         />
         
     })
