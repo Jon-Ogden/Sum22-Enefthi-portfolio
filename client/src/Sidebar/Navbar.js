@@ -2,7 +2,7 @@ import React from "react";
 import { IconContext } from "react-icons";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Css/navbar.css";
 import { Avatar } from "@mui/material"
 import FileUploadIcon from "@mui/icons-material/FileUpload";
@@ -144,6 +144,10 @@ export default function Navbar() {
         )
       }
     }
+
+    const [search, setSearch] = useState('');
+    const navigate = useNavigate();
+
     return (
       <>
        <div className="shiftleft">
@@ -151,12 +155,19 @@ export default function Navbar() {
         <div className="navbar">
           <div className="input">
             {/* <Input className="serchinput">Hello</Input> */}
+            
             <TextField
               className="serchinput"
               id="outlined-basic"
-              label="Outlined"
+              label="Search NFTs"
               variant="outlined"
               size="medium"
+              value={search}
+              onChange={(e)=>{setSearch(e.target.value)}}
+              onKeyPress={(e) => {if(e.key === "Enter"){
+                navigate(`/searchresults/${search}`)
+                window.location.reload()
+              }}}
             />
           </div>
           <div className="rightbuttons">

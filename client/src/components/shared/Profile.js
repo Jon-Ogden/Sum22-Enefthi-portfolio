@@ -73,11 +73,11 @@ const Profile = () => {
   useEffect(()=>{
     if(search !== ""){
       if(display == "created"){
-        setNormData2(normData.filter(c => c.title.includes(search)))
+        setNormData2(normData.filter(c => c.title.toLowerCase().includes(search.toLowerCase())))
       } else if(display == "collection"){
-        setNormData2(ownedNormData.filter(c => c.title.includes(search)))
+        setNormData2(ownedNormData.filter(c => c.title.toLowerCase().includes(search.toLowerCase())))
       } else if(display == "liked"){
-        setNormData2(likedNormData.filter(c => c.title.includes(search)))
+        setNormData2(likedNormData.filter(c => c.title.toLowerCase().includes(search.toLowerCase())))
       }
     }
 
