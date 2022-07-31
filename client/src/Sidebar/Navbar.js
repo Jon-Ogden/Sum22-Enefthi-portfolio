@@ -14,6 +14,7 @@ import TextField from '@mui/material/TextField';
 import LoginIcon from '@mui/icons-material/Login';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CreateIcon from '@mui/icons-material/Create';
+import logo from '../assets/Logo2.png'
 const SidebarDataUser = [
   {
     title: "Dashboard",
@@ -100,10 +101,12 @@ export default function Navbar() {
           <IconContext.Provider value={{ color: "#FFF" }}>
           <nav className={"nav-menu active"}>
            <ul className="nav-menu-items">
+            
    
             {navbar.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
+                  
                   <Link
                     to={item.path}
                     onClick={item.title === "Logout" ? () => logout() : null}
@@ -124,9 +127,13 @@ export default function Navbar() {
             <IconContext.Provider value={{ color: "#FFF" }}>
             <nav className={"nav-menu active"}>
             <ul className="nav-menu-items">
+              <div className="logo">
+              <img src={logo}/>
+              </div>
             {navbar.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
+                  
                   <Link
                     to={item.path}
                     onClick={item.title === "Logout" ? () => logout() : null}
@@ -152,11 +159,11 @@ export default function Navbar() {
           <div className="input">
             {/* <Input className="serchinput">Hello</Input> */}
             <TextField
-              className="serchinput"
-              id="outlined-basic"
-              label="Outlined"
-              variant="outlined"
-              size="medium"
+              fullWidth
+              id="fullWidth"
+              label="Search Nfts"
+              variant="outlined"            
+            
             />
           </div>
           <div className="rightbuttons">
@@ -168,46 +175,3 @@ export default function Navbar() {
       </>
     )
   }
-
-
-
-  // return (
-  //   <div className="shiftleft">
-  //     <IconContext.Provider value={{ color: "#FFF" }}>
-  //       <div className="navbar">
-  //         <div className="input">
-  //           {/* <Input className="serchinput">Hello</Input> */}
-  //           <TextField
-  //             className="serchinput"
-  //             id="outlined-basic"
-  //             label="Outlined"
-  //             variant="outlined"
-  //             size="medium"
-  //           />
-  //         </div>
-  //         <div className="rightbuttons">
-  //           <NewNavButtons />
-  //         </div>
-  //       </div>
-  //       <nav className={"nav-menu active"}>
-          
-  //         <ul className="nav-menu-items">
-  //           {SidebarDataUserPresent.map((item, index) => {
-  //             return (
-  //               <li key={index} className={item.cName}>
-  //                 <Link
-  //                   to={item.path}
-  //                   onClick={item.title === "Logout" ? () => logout() : null}
-  //                 >
-  //                   {item.icon}
-  //                   <span>{item.title}</span>
-  //                 </Link>
-  //               </li>
-  //             );
-  //           })}
-  //         </ul>
-  //       </nav>
-  //     </IconContext.Provider>
-  //   </div>
-  // );
-

@@ -2,3 +2,27 @@
   min-width: 320px;
   max-width: 500px;
 }
+.likebutton{
+  margin-left: 280%;
+  margin-bottom: -5%;
+  margin-top: -40%;
+}
+
+.price{
+  margin-top: -8.5%;
+  margin-left: 6%;
+  font-size: 18px;
+}
+
+.bottombuttons{
+  margin-top: -10%;
+}
+
+.eth{
+  margin-top: -10%;
+}
+
+.buynouser{
+  margin-left: 5%;
+  margin-bottom: 50%;
+}

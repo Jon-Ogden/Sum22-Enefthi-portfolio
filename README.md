@@ -1,26 +1,13 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#  Welcome To ENEFTHI
 
-Things you may want to cover:
+## This site is dessigned as a profolio project
 
-* Ruby version
+# Steps to run ENEFTHI
+## Start server
+### 1. bundle
+### 2. Rails db:create 
+### 3. Rails db:migrate 
+### 4. Rails db:seed
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-Can I push to main????
+## Npm run / yarn start

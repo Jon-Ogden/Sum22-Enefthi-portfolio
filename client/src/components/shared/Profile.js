@@ -193,14 +193,10 @@ const renderCreatorCards = () => {
           {renderCreatorCards()}
         </div>
       </div>
-<<<<<<< HEAD
-  </div>
-  );
-=======
-      </div>)
+      </div>
+      )
   
   
->>>>>>> 005608ebe8c5b49cf08daae8c9bddd55846c560b
 };
 
 export default Profile;

@@ -15,7 +15,8 @@ import { useContext } from "react";
 import { DataContext } from "../providers/DataProvider";
 import { AuthContext } from "../providers/AuthProvider";
 import "../Css/letswork.css";
-import { useEffect } from "react";
+import eth from '../assets/eth.png'
+
 
 function NftCard(props) {
   const navigate = useNavigate();
@@ -34,6 +35,37 @@ function NftCard(props) {
     }
   }
 
+  const renderBuy = () =>{
+    if (user) {
+      return(
+        <Button variant="contained" onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
+      )
+    } else {
+      return (
+        <div className="buynouser">
+        <Button variant="contained" onClick={()=>{navigate(`/login`)}} size="small">Buy Piece</Button>
+        </div>
+      )
+    }
+  }
+
+
+const renderLike = () =>{
+  if(user){
+    return (<>
+        <div className="likebutton">
+        <IconButton onClick={()=>{toggleLike()}}>
+          {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        </IconButton>
+        </div>
+        </>
+    )
+  } 
+}
+
+
+
+
   return (
     <Card sx={{ maxWidth: 345 }} className='card letswork'>
       <div onClick={()=>{navigate(`/MarketDetail/${props.id}`)}}>
@@ -42,28 +74,33 @@ function NftCard(props) {
           height="140"
           image={props.image}
           alt="NFT IMAGE"
+          color="blue"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {props.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             By {props.creator}
           </Typography>
           <br />
+          <br />
           <Typography variant="body2" color="text.secondary">
-            {props.price}
+            <div className="eth">
+              <p>Current price</p>
+            <img src={eth}/>  &nbsp; <div className="price"> {props.price} ETH </div>
+          </div>
             <br />
-            <MonetizationOnIcon />
-            {/* {price ?} */}
           </Typography>
         </CardContent>
       </div>
       <CardActions>
-        <Button variant="outlined" onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
-        <IconButton onClick={()=>{toggleLike()}}>
-          {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-        </IconButton>
+        <div className="bottombuttons">
+        {renderBuy()}
+        <div className="likebutton">
+       {renderLike()}
+        </div>
+        </div>
       </CardActions>
     </Card>
   );

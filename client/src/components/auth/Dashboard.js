@@ -117,11 +117,11 @@ const getInitDataNoUser = async() => {
     <div>
       <div className="parent">
         <BannerCard />
+        <br />
         <h1 className="newest">Newest Peices</h1>
         <div className="nftdisplay">
           {renderNft()}
         </div>
-       
       </div>
       <div className="rightbar">
         <h2></h2>
