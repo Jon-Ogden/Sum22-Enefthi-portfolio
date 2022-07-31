@@ -59,6 +59,8 @@ const getInitDataNoUser = async() => {
             creator={users.filter(x => x.id == c.creator_id)[0].name}
             liked={c.liked}
             like_id={c.like_id}
+            for_sale={c.for_sale}
+            owner={c.user_id}
             />})}}
 
             useEffect(()=>{
@@ -73,6 +75,7 @@ const getInitDataNoUser = async() => {
   const renderRecentSales = () =>{
     return normData.slice(15,19).map((c)=>{
       return <RecentSale2 
+      key={c.id}
       id={c.id}
       title={c.title}
       name={c.name}
@@ -87,6 +90,7 @@ const getInitDataNoUser = async() => {
   }else {
     return normData.slice(10,11).map((c, props)=>{
       return <MediaCard 
+      key={c.id}
       id={c.id}
       image={c.image}
       title={c.title}
@@ -117,7 +121,7 @@ const getInitDataNoUser = async() => {
     <div>
       <div className="parent">
         <BannerCard />
-        <h1 className="newest">Newest Peices</h1>
+        <h1 className="newest">Newest Pieces</h1>
         <div className="nftdisplay">
           {renderNft()}
         </div>
