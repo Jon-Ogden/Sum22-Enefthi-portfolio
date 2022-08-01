@@ -16,6 +16,7 @@ import Saved from "./components/auth/Saved";
 import CreateNft from "./components/auth/CreateNft";
 import MyUser from "./components/auth/UserProfile";
 import Profile from "./components/shared/Profile";
+import SearchResults from "./components/shared/SearchResults";
 
 const App = () => {
   const location = useLocation();
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/market" element={<Market />} />
             <Route path="/MarketDetail/:id" element={<MarketDetail />} />
             <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/searchresults/:search" element={<SearchResults />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/account" element={<UserAccount />} />
               <Route path="/payment/:id" element={<Payment />} />

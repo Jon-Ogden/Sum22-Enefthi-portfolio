@@ -15,7 +15,7 @@ import { Text, Title } from "../styled-components/Fonts";
 
 const Profile = () => {
   const {user} = useContext(AuthContext)
-  const {nfts, isLoading} = useContext(DataContext)
+  const {nfts, isLoading, users} = useContext(DataContext)
   const [display, setDisplay] = useState("created")
   const params = useParams();
   const [creator, setCreator] = useState({}) 
@@ -73,11 +73,11 @@ const Profile = () => {
   useEffect(()=>{
     if(search !== ""){
       if(display == "created"){
-        setNormData2(normData.filter(c => c.title.includes(search)))
+        setNormData2(normData.filter(c => c.title.toLowerCase().includes(search.toLowerCase())))
       } else if(display == "collection"){
-        setNormData2(ownedNormData.filter(c => c.title.includes(search)))
+        setNormData2(ownedNormData.filter(c => c.title.toLowerCase().includes(search.toLowerCase())))
       } else if(display == "liked"){
-        setNormData2(likedNormData.filter(c => c.title.includes(search)))
+        setNormData2(likedNormData.filter(c => c.title.toLowerCase().includes(search.toLowerCase())))
       }
     }
 
@@ -109,15 +109,18 @@ const renderCreatorCards = () => {
     }
     return (
       normData2.map((c) => {
+        let nftCreator = users.filter(x => x.id == c.creator_id)[0]
         return <NftCard 
         key={c.id}
         id={c.id}
         title={c.title}
         price={c.price}
         image={c.image}
-        creator={creator.name}
+        creator={nftCreator.name}
         liked={c.liked}
         like_id={c.like_id}
+        for_sale={c.for_sale}
+        owner={c.user_id}
         />
     })
     )
@@ -126,15 +129,18 @@ const renderCreatorCards = () => {
       return (<div><Text>This User has no Created NFTs.</Text></div>)
     }
   return normData.map((c) => {
+      let nftCreator = users.filter(x => x.id == c.creator_id)[0]
       return <NftCard 
       key={c.id}
       id={c.id}
       title={c.title}
       price={c.price}
       image={c.image}
-      creator={creator.name}
+      creator={nftCreator.name}
       liked={c.liked}
       like_id={c.like_id}
+      for_sale={c.for_sale}
+      owner={c.user_id}
       />
   })
 } else if(display === "collection"){
@@ -142,15 +148,18 @@ const renderCreatorCards = () => {
     return (<div><Text>This User owns no NFTs.</Text></div>)
   }
   return ownedNormData.map((c) => {
+    let nftCreator = users.filter(x => x.id == c.creator_id)[0]
     return <NftCard 
     key={c.id}
     id={c.id}
     title={c.title}
     price={c.price}
     image={c.image}
-    creator={creator.name}
+    creator={nftCreator.name}
     liked={c.liked}
     like_id={c.like_id}
+    for_sale={c.for_sale}
+    owner={c.user_id}
     />
 })
 } else if(display === "liked"){
@@ -158,15 +167,18 @@ const renderCreatorCards = () => {
     return (<div><Text>This User has no liked NFTs.</Text></div>)
   }
   return likedNormData.map((c) => {
+      let nftCreator = users.filter(x => x.id == c.creator_id)[0]
       return <NftCard 
       key={c.id}
       id={c.id}
       title={c.title}
       price={c.price}
       image={c.image}
-      creator={creator.name}
+      creator={nftCreator.name}
       liked={c.liked}
       like_id={c.like_id}
+      for_sale={c.for_sale}
+      owner={c.user_id}
       />
   })
 }
