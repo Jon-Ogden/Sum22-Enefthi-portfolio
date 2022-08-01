@@ -1,0 +1,28 @@
+
+.rightimg{
+  border: 1px solid black;
+  width: 50%;
+  height: 937px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.form{
+  margin-left: 65%;
+  margin-top: -45%;
+  border: 1px solid black;
+  text-align: center;
+  width: 20%;
+  height: 300px;
+}
+.form > h1 {
+  text-align: center;
+  margin-left: -2%;
+}
+
+.form > button {
+  width: 200px;
+}

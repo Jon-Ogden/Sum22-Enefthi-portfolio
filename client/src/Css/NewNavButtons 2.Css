@@ -1,0 +1,6 @@
+.navrightside {
+  display: flex;
+  flex-direction: row;
+  margin-left: 180%;
+}
+
