@@ -44,9 +44,9 @@ class Api::NftsController < ApplicationController
             if file
               cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true, resource_type: :auto)
             end
-            image_url =  cloud_image ? cloud_image["secure_url"] : 'https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0='
+            image_url =  cloud_image ? cloud_image["secure_url"] : ''
             # succesfull saved to cloudinary add to db
-            nft = Nft.new(image: image_url  , title: title, for_sale:for_sale, description: description , user_id: user_id)
+            nft = Nft.new(image: image_url, price: listPrice, title: title, for_sale:for_sale, description: description , user_id: user_id)
             if(nft.save)
                 # we success create user to our db
                 render json: nft
@@ -66,7 +66,7 @@ class Api::NftsController < ApplicationController
         @nft = Nft.find(params[:id])
     end
     def nft_params
-        params.require(:nft).permit(:price, :description, :image, :user_id, :for_sale, :sale_date, :file, )
+        params.require(:nft).permit(:price, :description, :image, :user_id, :for_sale, :sale_date, :file, :creator_id)
     end
     def set_page
         @page = params[:page] || 1
