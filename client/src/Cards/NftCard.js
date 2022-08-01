@@ -45,7 +45,41 @@ function NftCard(props) {
     }
   }
 
-  if(props.owner !== user.id){
+  if(!user){
+    return (
+      <Card sx={{ maxWidth: 345 }} className='card letswork'>
+        <div onClick={()=>{navigate(`/MarketDetail/${props.id}`)}}>
+          <CardMedia
+            component="img"
+            height="140"
+            image={props.image}
+            alt="NFT IMAGE"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {props.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              By {props.creator}
+            </Typography>
+            <br />
+            <Typography variant="body2" color="text.secondary">
+              {props.price}
+              <br />
+              <MonetizationOnIcon />
+              {/* {price ?} */}
+            </Typography>
+          </CardContent>
+        </div>
+        <CardActions>
+          {for_sale ? <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button> :
+          <Button variant="outlined">Not for sale</Button>}
+        </CardActions>
+      </Card>
+    );
+  }
+
+  if(!user || props.owner !== user.id){
     return (
       <Card sx={{ maxWidth: 345 }} className='card letswork'>
         <div onClick={()=>{navigate(`/MarketDetail/${props.id}`)}}>
