@@ -8,41 +8,33 @@ const Settings = () => {
   return (
     <div className="shiftleft">
       <div className="container">
-        <h2>Profile</h2>
-        <p>Update your photo and personal details here</p>
+        
+        {/* <p>Update your photo and personal details here</p> */}
 
-        <div className="buttons">
+        {/* <div className="buttons">
           <h4> Every change automaticly saved</h4>
           <Button>Preview</Button>
           <Button>Cancel</Button>
-        </div>
-        <div className="userinfo">
+        </div> */}
+        {/* <div className="userinfo">
           <h3>Your photo</h3>
           <hr />
           <Avatar /> <h4>Edit Your Photo</h4>
           <Button>Delete</Button>
           <Button>Update</Button>
           <h2>Drop box</h2>
-        </div>
+        </div> */}
 
         <div className="personalinfo">
-          <h3>Personal Information</h3>
+        <h3>Edit Your Profile</h3>
           <hr />
           <TextField
             required
             id="filled-required"
             label="Required"
-            defaultValue="First Name"
+            defaultValue="Full Name"
             variant="filled"
           />
-          <TextField
-            required
-            id="filled-required"
-            label="Required"
-            defaultValue="Last Name"
-            variant="filled"
-          />
-          <br />
           <TextField
             required
             id="filled-required"
@@ -52,27 +44,38 @@ const Settings = () => {
           />
           <br />
           <TextField
+          required
             id="filled-helperText"
-            label="Helper text"
+            label="required"
             defaultValue="Username"
             variant="filled"
           />
+          <TextField
+            required
+            id="filled-required"
+            label="Required"
+            defaultValue="Details"
+            variant="filled"
+          />
+          
           <br />
           <TextField
+             required
+             id="filled-helperText"
+             label="required"
+            defaultValue="Website"
+            variant="filled"
+          />
+          {/* <TextField
             id="filled-multiline-static"
             label="Multiline"
             multiline
             rows={4}
             defaultValue="Biography"
             variant="filled"
-          />
-          <br />
-          <TextField
-            id="filled-helperText"
-            label="Helper text"
-            defaultValue="Website"
-            variant="filled"
-          />
+          /> */}
+          <Button            variant="contained">Submit
+          </Button>
         </div>
       </div>
     </div>

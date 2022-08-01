@@ -19,25 +19,24 @@ export default function MediaCard(props) {
         image={props.image}
         alt="NFT IMAGE"
       />
-      <Avatar src={props.avatar}/>
+      
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          @{props.username}
+          {props.description}
         </Typography>
         <br />
       </CardContent>
       <CardActions>
-        <Button onClick={()=>{
-          navigate(`otherUser/${props.id}`)
+        <Button variant='contained' onClick={()=>{
+          navigate(`marketdetail/${props.id}`)
         }}>Follow</Button>
       </CardActions>
       <CardContent>
-        <hr />
         <Typography variant="body2" color="text.secondary">
-          {props.description}
+          {props.price}
         </Typography>
       </CardContent>
     </Card>

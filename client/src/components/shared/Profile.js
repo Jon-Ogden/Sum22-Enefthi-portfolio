@@ -1,8 +1,8 @@
 import "../../Css/shiftleft.css";
 import UserBanner from "../../Cards/UserBanner";
 import UserCard from "../../Cards/UserCard";
-import "../../Css/usercard.css";
-import { Button, createChainedFunction } from "@mui/material";
+import "../../Css/Profile.css";
+import { Button, createChainedFunction, useThemeProps } from "@mui/material";
 import NftCard from "../../Cards/NftCard";
 import { useState } from "react";
 import { useContext } from "react";
@@ -19,6 +19,7 @@ const Profile = () => {
   const [display, setDisplay] = useState("created")
   const params = useParams();
   const [creator, setCreator] = useState({}) 
+
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [normData, setNormData] = useState([])
@@ -98,6 +99,28 @@ const Profile = () => {
         } 
      })
 }
+
+const renderUsersTab = () =>{
+  if(isLoading || loading){
+    return (<div><h1 className="shiftleft">loading...</h1></div>)
+  } 
+  if(search.length > 0){
+    if(normData2.length == 0){
+      return (<div><Text>No users match this search</Text></div>)
+    } return normData2.map((c)=>{
+      let userCard = users.filter(x => x.id == c.user_id)[0]
+      return <UserCard 
+      key={c.id}
+      id={c.id}
+      name={c.name}
+      email={c.email} 
+      image={c.image}
+      user={userCard.name}
+      />
+    })}}
+
+
+
 
 const renderCreatorCards = () => {
   if(isLoading || loading){
@@ -191,7 +214,8 @@ const renderCreatorCards = () => {
       <div className="shiftleft">
         <UserBanner />
         <div className="usercard">
-          <UserCard avatar={creator.image}/>
+          {/* <UserCard avatar={user.image} name={user.name} email={user.email} joined_in={user.joined_in}/> */}
+          {renderUsersTab()}
         </div>
         <div className="nftbar grouping">
           <Button variant={display == "created" ? "contained" : "outlined"} onClick={()=>{setDisplay("created")}}>Created</Button>

@@ -3,14 +3,12 @@
   max-width: 500px;
 }
 .likebutton{
-  margin-left: 280%;
-  margin-bottom: -5%;
-  margin-top: -40%;
+  margin-left: 60%;
 }
 
 .price{
   margin-top: -8.5%;
-  margin-left: 6%;
+  margin-left: 8%;
   font-size: 18px;
 }
 
@@ -19,7 +17,7 @@
 }
 
 .eth{
-  margin-top: -10%;
+  margin-top: -11%;
 }
 
 .buynouser{

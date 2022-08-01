@@ -1,10 +1,9 @@
 import "../../Css/shiftleft.css";
 import UserBanner from "../../Cards/UserBanner";
 import UserCard from "../../Cards/UserCard";
-import "../../Css/usercard.css";
 import { Button } from "@mui/material";
 import NftCard from "../../Cards/NftCard";
-
+import "../../Css/Profile.css"
 const MyUser = () => {
   return (
     <div className="shiftleft">

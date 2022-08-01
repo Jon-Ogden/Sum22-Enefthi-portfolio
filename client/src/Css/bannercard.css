@@ -8,6 +8,12 @@
 border-radius: 10px;
 z-index: -2;
 }
+.bannercard img {
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: auto;
+
+}
 .content{
 /*   display:flex;
   flex-direction:column;
@@ -15,6 +21,13 @@ z-index: -2;
   align-content:center;
   align-items:center; */
   padding-top:100px;
+}
+
+.content h1 {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  color: white;
+  font-size: 45px;
 }
 
  h1{
@@ -39,8 +52,11 @@ z-index: -2;
 }
 /* image background */
 #imageonly {
-  background: url(http://images.ctfassets.net/sdlntm3tthp6/4WcsSHjyPrPj7KQn3LgDDA/ca3518a376bdb64edac2fd2c9d6f19f0/CryptoPunks_Christies_Auction_Banner-min.jpg);
+  background: url(https://f8n-production.s3.amazonaws.com/creators/profile/j1rn4yq4s-bannergif-gif-owsb61.gif);
   /* z-index: -10; */
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: auto;
 }
 
 .button1{

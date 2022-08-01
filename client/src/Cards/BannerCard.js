@@ -10,6 +10,7 @@ const BannerCard = () => {
     <div className="bannercard">
       <div id="imageonly">
         <div class="content">
+     
           <h1>ENEFTHI</h1>
           <div class="btn-cont">
             <div className="button1">

@@ -5,7 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -16,8 +15,9 @@ import { DataContext } from "../providers/DataProvider";
 import { AuthContext } from "../providers/AuthProvider";
 import "../Css/letswork.css";
 import axios from "axios";
+import eth from '../assets/eth.png'
 
- function NftCard(props) {
+function NftCard(props) {
   const navigate = useNavigate();
   const [liked, setLiked] = useState(props.liked)
   const [for_sale, setFor_sale] = useState(props.for_sale)
@@ -45,35 +45,7 @@ import axios from "axios";
     }
   }
 
-  const renderBuy = () =>{
-    if (user) {
-      return(
-        <Button variant="contained" onClick={()=>{navigate(`/purchase`)}} size="small">Buy Piece</Button>
-      )
-    } else {
-      return (
-        <div className="buynouser">
-        <Button variant="contained" onClick={()=>{navigate(`/login`)}} size="small">Buy Piece</Button>
-        </div>
-      )
-    }
-  }
-
-
-const renderLike = () =>{
-  if(user){
-    return (<>
-        <div className="likebutton">
-        <IconButton onClick={()=>{toggleLike()}}>
-          {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-        </IconButton>
-        </div>
-        </>
-    )
-  } 
-}
-
-  if(props.owner !== user.id){
+  if(!user){
     return (
       <Card sx={{ maxWidth: 345 }} className='card letswork'>
         <div onClick={()=>{navigate(`/MarketDetail/${props.id}`)}}>
@@ -92,9 +64,11 @@ const renderLike = () =>{
             </Typography>
             <br />
             <Typography variant="body2" color="text.secondary">
-              {props.price}
+            <div className="eth">
+              <p>Current price</p>
+            <img src={eth}/>  &nbsp; <div className="price"> {props.price} $ </div>
+            </div>
               <br />
-              <MonetizationOnIcon />
               {/* {price ?} */}
             </Typography>
           </CardContent>
@@ -102,10 +76,52 @@ const renderLike = () =>{
         <CardActions>
           {for_sale ? <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button> :
           <Button variant="outlined">Not for sale</Button>}
+        </CardActions>
+      </Card>
+    );
+  }
+
+  if(!user || props.owner !== user.id){
+    return (
+      <Card sx={{ maxWidth: 345 }} className='card letswork'>
+        <div onClick={()=>{navigate(`/MarketDetail/${props.id}`)}}>
+          <CardMedia
+            component="img"
+            height="140"
+            image={props.image}
+            alt="NFT IMAGE"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {props.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              By {props.creator}
+            </Typography>
+            <br />
+            <Typography variant="body2" color="text.secondary">
+            <div className="eth">
+              <p>Current price</p>
+            <img src={eth}/>  &nbsp; <div className="price"> {props.price} $ </div>
+            </div>
+              <br />
+   
+            </Typography>
+          </CardContent>
+        </div>
+        <div className="bottombuttons">
+        <CardActions>
+          {for_sale ? <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button> :
+          <Button variant="outlined">Not for sale</Button>}
+          <div className="likebutton">
           <IconButton onClick={()=>{toggleLike()}}>
             {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
+          
+          </div >
+          
         </CardActions>
+        </div>
       </Card>
     );
   } else {
@@ -127,11 +143,12 @@ const renderLike = () =>{
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
-          {props.price}
+        <div className="eth">
+              <p>Current price</p>
+            <img src={eth}/>  &nbsp; <div className="price"> {props.price} ETH </div>
+            </div>
           <br />
-          <MonetizationOnIcon />
-          {/* {price ?} */}
-        </Typography>
+         </Typography>
       </CardContent>
     </div>
     <CardActions>
@@ -148,5 +165,4 @@ const renderLike = () =>{
     )
   }
 }
-
-export default NftCard
+export default NftCard;

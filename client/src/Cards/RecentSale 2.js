@@ -8,10 +8,14 @@ const RecentSale2 = (props) => {
     <div className="Recentsale" onClick={()=>{
       navigate(`/MarketDetail/${props.id}`)
     }}>
-      <Avatar />
+      <div className="image1">
+      <img src={props.image} />
+      </div>
+      <div className="props">
       <p>{props.title}</p>
       <p>{props.name}</p>
-      <p>{props.price}</p>
+      <p>{props.price} $</p>
+      </div>
     </div>
   );
 };

@@ -1,36 +1,40 @@
-.usercard{
-  width: 20%;
-  height: 500px;
-  margin-left: 3%;
-  margin-top: -5%;
-  background-color:#f3f3f3;
-  top: 0;
-  z-index: 1000;
-  position: relative;
-  border-radius: 20px;
-}
-
-.nftbar {
-  margin-left: 25%;
-  margin-top: -28%;
-
-}
-
-.search {
-  right: 10px;
-  position: absolute;
-}
-
-.nftstack{
-  margin-left: 25%;
-  margin-top: 2%;
-  width: 73%;
+.avataricon{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  margin-top: -5%
+;}
+
+.avatarname{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -10%;
 }
 
-.grouping{
+.avataremail{
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.overall{
+  
+}
+
+.details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15%;
+  margin-top: -15%;
+}
+
+.editprofile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -15%;
 }

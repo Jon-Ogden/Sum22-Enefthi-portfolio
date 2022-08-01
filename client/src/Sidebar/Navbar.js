@@ -101,7 +101,9 @@ export default function Navbar() {
           <IconContext.Provider value={{ color: "#FFF" }}>
           <nav className={"nav-menu active"}>
            <ul className="nav-menu-items">
-            
+           <div className="logo">
+              <img src={logo}/>
+              </div>
    
             {navbar.map((item, index) => {
               return (

@@ -80,6 +80,7 @@ const getInitDataNoUser = async() => {
       title={c.title}
       name={c.name}
       price={c.price}
+      image={c.image}
       />
     })
   }
@@ -95,9 +96,7 @@ const getInitDataNoUser = async() => {
       image={c.image}
       title={c.title}
       username={c.username}
-      descritption={c.descritption}
-      avatar={props.avatar}
-
+      description={c.description}
       />
     })
   }}
@@ -132,11 +131,7 @@ const getInitDataNoUser = async() => {
         <div className="creatorcard">
           {/* <MediaCard /> */}
           {renderFollowing()}
-          <hr />
           <h2>Recent Sales</h2>
-          <Button onClick={()=>{
-            navigate('/sales')
-          }}>See all</Button>
           {renderRecentSales()}
  
         </div>
