@@ -1,0 +1,14 @@
+.buttons {
+  margin-left: 2%;
+  margin-top: 1%;
+}
+.saved {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+.filter{
+  margin-left: 85%;
+  margin-top: -3%;
+}

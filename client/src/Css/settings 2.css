@@ -1,0 +1,22 @@
+.container{
+  margin: 2.5%;
+  outline: black 1px solid;
+  margin-top: 8%;
+ }
+
+ .personalinfo{
+  outline: black 1px solid;
+  margin-top: -18.8%;
+  width: 40%;
+ }
+
+ .buttons {
+  margin-left: 70%;
+  margin-top: -6.5%;
+ }
+
+ .userinfo {
+  margin-left: 70%;
+  outline: black solid 1px;
+  margin-top: -1%;
+ }
