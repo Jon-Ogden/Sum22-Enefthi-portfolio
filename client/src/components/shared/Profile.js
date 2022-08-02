@@ -63,12 +63,14 @@ const Profile = () => {
 
 
   useEffect(()=>{
+    if(isLoading){
+      return }
     if(user){
       getInitDataUser(user.id)
     } else {
       getInitDataNoUser()
     }
-  },[isLoading, loading])
+  },[isLoading])
 
   useEffect(()=>{
     if(search !== ""){

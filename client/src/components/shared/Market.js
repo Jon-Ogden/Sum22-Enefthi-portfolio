@@ -36,7 +36,7 @@ export default function Market(){
     const getInitDataNoUser = async() => {
       try {
         let res2 = await axios.get(`/api/nfts/page/${1}`)
-        console.log(res2)
+        console.log(res2.data.nfts)
         setNormData(normalize(res2.data.nfts))
         setTotalPages(res2.data.total_pages)
       } catch(error){
