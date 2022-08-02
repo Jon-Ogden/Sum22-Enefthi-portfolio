@@ -1,13 +1,21 @@
 import { Avatar } from "@mui/material";
 import "../Css/recentsale.css";
+import { useNavigate } from "react-router";
 
-const RecentSale = () => {
+const RecentSale = (props) => {
+  const navigate = useNavigate()
   return (
-    <div className="Recentsale">
-      <Avatar />
-      <h2>NFT Title</h2>
-      <p>From Artist</p>
-      <h3>Price</h3>
+    <div className="Recentsale" onClick={()=>{
+      navigate(`/MarketDetail/${props.id}`)
+    }}>
+      <div className="image1">
+      <img src={props.image} />
+      </div>
+      <div className="props">
+      <p>{props.title}</p>
+      <p>{props.name}</p>
+      <p>{props.price} $</p>
+      </div>
     </div>
   );
 };

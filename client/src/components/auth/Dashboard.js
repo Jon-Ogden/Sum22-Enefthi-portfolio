@@ -3,7 +3,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 import BannerCard from "../../Cards/BannerCard";
 import "../../Css/Nftcard.css";
 import MediaCard from "../../Cards/CreatorCard";
-import RecentSale from "../../Cards/RecentSale";
 import TopCollection from "../../Cards/TopCollection";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
@@ -12,8 +11,9 @@ import { useState } from "react";
 import LoadingSpinner from '../../assets/Loadingspinner'
 import axios from 'axios'
 import { useEffect } from "react";
-import RecentSale2 from "../../Cards/RecentSale 2";
 import NftCard from "../../Cards/NftCard";
+import "../../Css/recentsale.css"
+import RecentSale from "../../Cards/RecentSale";
 
 const DashBoard = (c) => {
   const { user } = useContext(AuthContext);
@@ -74,7 +74,7 @@ const getInitDataNoUser = async() => {
 
   const renderRecentSales = () =>{
     return normData.slice(15,19).map((c)=>{
-      return <RecentSale2 
+      return <RecentSale 
       key={c.id}
       id={c.id}
       title={c.title}
