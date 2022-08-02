@@ -29,4 +29,5 @@ Rails.application.routes.draw do
     delete '/sales/:id', to:'sales#destroy_sale'
     get '/nfts/page/:page', to:'nfts#paginate_all'
   end
+  get '*other', to: 'static#index'
 end

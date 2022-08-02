@@ -13,7 +13,7 @@ import "../../../Css/newnft.css";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 const NewNft = () => {
   const [title, setTitle] = useState("");
-  const [for_sale, setFor_Sale] = useState(0);
+  const [for_sale, setFor_Sale] = useState("true");
   const [saleprice, setSalePrice] = useState(0);
   const [description, setDescription] = useState("");
   const { user } = useContext(AuthContext);
@@ -24,7 +24,7 @@ const NewNft = () => {
 
     const data = new FormData();
     console.log("cliked");
-    if (files[1]) {
+    if (files[0]) {
       data.append("file", files[0].file);
     }
     data.append("title", title);
@@ -56,7 +56,7 @@ const NewNft = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <h3 className="inputtext">For sale?</h3>
+        <h3 className="inputtext">For sale? (True or False)</h3>
         <input
           className="inputnft"
           value={for_sale}
@@ -73,7 +73,8 @@ const NewNft = () => {
           className="inputnft"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        />
+        /><br />
+        <button className="inputtext" type="submit">submit</button>
 
         <FilePond
           className="filedrop"
@@ -83,7 +84,6 @@ const NewNft = () => {
           name="files"
           labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
         />
-        <button type="submit">submit</button>
       </form>
     </div>
   );
