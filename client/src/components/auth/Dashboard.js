@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import BannerCard from "../../Cards/BannerCard";
-import NftCard from "../../Cards/NftCard";
 import "../../Css/Nftcard.css";
 import MediaCard from "../../Cards/CreatorCard";
 import RecentSale from "../../Cards/RecentSale";
@@ -14,6 +13,7 @@ import LoadingSpinner from '../../assets/Loadingspinner'
 import axios from 'axios'
 import { useEffect } from "react";
 import RecentSale2 from "../../Cards/RecentSale 2";
+import NftCard from "../../Cards/NftCard";
 
 const DashBoard = (c) => {
   const { user } = useContext(AuthContext);
@@ -80,6 +80,7 @@ const getInitDataNoUser = async() => {
       title={c.title}
       name={c.name}
       price={c.price}
+      image={c.image}
       />
     })
   }
@@ -95,9 +96,7 @@ const getInitDataNoUser = async() => {
       image={c.image}
       title={c.title}
       username={c.username}
-      descritption={c.descritption}
-      avatar={props.avatar}
-
+      description={c.description}
       />
     })
   }}
@@ -125,7 +124,6 @@ const getInitDataNoUser = async() => {
         <div className="nftdisplay">
           {renderNft()}
         </div>
-       
       </div>
       <div className="rightbar">
         <h2></h2>
@@ -133,11 +131,7 @@ const getInitDataNoUser = async() => {
         <div className="creatorcard">
           {/* <MediaCard /> */}
           {renderFollowing()}
-          <hr />
           <h2>Recent Sales</h2>
-          <Button onClick={()=>{
-            navigate('/sales')
-          }}>See all</Button>
           {renderRecentSales()}
  
         </div>

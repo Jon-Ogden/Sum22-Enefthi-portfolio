@@ -1,8 +1,8 @@
 import "../../Css/shiftleft.css";
 import UserBanner from "../../Cards/UserBanner";
 import UserCard from "../../Cards/UserCard";
-import "../../Css/usercard.css";
-import { Button, createChainedFunction } from "@mui/material";
+import "../../Css/Profile.css";
+import { Button, createChainedFunction, useThemeProps } from "@mui/material";
 import NftCard from "../../Cards/NftCard";
 import { useState } from "react";
 import { useContext } from "react";
@@ -101,6 +101,28 @@ const Profile = () => {
      })
 }
 
+const renderUsersTab = () =>{
+  if (!users){return (
+    <></>
+  )
+  }
+  let userCard = users.find(x => x.id == params.id)
+  if(!userCard){return(<></>)}
+  console.log(user)
+      return <UserCard 
+      key={userCard.id}
+      id={userCard.id}
+      name={userCard.name}
+      email={userCard.email} 
+      image={userCard.image}
+      user={userCard.name}
+      signed_in={user ?  user.id  : 0}
+      />
+    }
+  
+
+
+
 const renderCreatorCards = () => {
   if(isLoading || loading){
     return (<div><h1 className="shiftleft">loading...</h1></div>)
@@ -193,7 +215,8 @@ const renderCreatorCards = () => {
       <div className="shiftleft">
         <UserBanner />
         <div className="usercard">
-          <UserCard avatar={creator.image}/>
+          {/* <UserCard avatar={user.image} name={user.name} email={user.email} joined_in={user.joined_in}/> */}
+          {renderUsersTab()}
         </div>
         <div className="nftbar grouping">
           <Button variant={display == "created" ? "contained" : "outlined"} onClick={()=>{setDisplay("created")}}>Created</Button>

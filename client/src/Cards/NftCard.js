@@ -5,7 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -16,6 +15,7 @@ import { DataContext } from "../providers/DataProvider";
 import { AuthContext } from "../providers/AuthProvider";
 import "../Css/letswork.css";
 import axios from "axios";
+import eth from '../assets/eth.png'
 
 function NftCard(props) {
   const navigate = useNavigate();
@@ -64,17 +64,23 @@ function NftCard(props) {
             </Typography>
             <br />
             <Typography variant="body2" color="text.secondary">
-              {props.price}
+            <div className="eth">
+              <p>Current price</p>
+              &nbsp; <div className="price"> ${props.price}  </div>
+            </div>
               <br />
-              <MonetizationOnIcon />
               {/* {price ?} */}
             </Typography>
           </CardContent>
         </div>
+        
         <CardActions>
+        <div className="buypiece">
           {for_sale ? <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button> :
           <Button variant="outlined">Not for sale</Button>}
+          </div>
         </CardActions>
+
       </Card>
     );
   }
@@ -98,20 +104,28 @@ function NftCard(props) {
             </Typography>
             <br />
             <Typography variant="body2" color="text.secondary">
-              {props.price}
+            <div className="eth">
+              <p>Current price</p>
+              &nbsp; <div className="price"> ${props.price}  </div>
+            </div>
               <br />
-              <MonetizationOnIcon />
-              {/* {price ?} */}
+   
             </Typography>
           </CardContent>
         </div>
+        <div className="bottombuttons">
         <CardActions>
           {for_sale ? <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button> :
           <Button variant="outlined">Not for sale</Button>}
+          <div className="likebutton">
           <IconButton onClick={()=>{toggleLike()}}>
             {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
+          
+          </div >
+          
         </CardActions>
+        </div>
       </Card>
     );
   } else {
@@ -133,11 +147,12 @@ function NftCard(props) {
         </Typography>
         <br />
         <Typography variant="body2" color="text.secondary">
-          {props.price}
+        <div className="eth">
+              <p>Current price</p>
+              &nbsp; <div className="price"> ${props.price}  </div>
+            </div>
           <br />
-          <MonetizationOnIcon />
-          {/* {price ?} */}
-        </Typography>
+         </Typography>
       </CardContent>
     </div>
     <CardActions>

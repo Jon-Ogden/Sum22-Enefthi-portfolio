@@ -143,7 +143,9 @@ export default function Market(){
 
     return(
         <div className="shiftleft">
+            <div className='discover'>
             <Title>DISCOVER</Title>
+            </div>
             <div className="marketContainer">
                 {renderCards()}
             </div>
