@@ -46,7 +46,7 @@ const Register = [
     cName: "nav-text",
   },
   {
-    title: "Market Place",
+    title: "Marketplace",
     path: "/market",
     icon: <StorefrontIcon />,
     cName: "nav-text",
