@@ -46,7 +46,7 @@ class Api::NftsController < ApplicationController
             end
             image_url =  cloud_image ? cloud_image["secure_url"] : ''
             # succesfull saved to cloudinary add to db
-            nft = Nft.new(image: image_url, price: listPrice, title: title, for_sale:for_sale, description: description , user_id: user_id)
+            nft = Nft.new(image: image_url, price: listPrice, title: title, for_sale:for_sale, description: description, user_id: user_id, creator_id: user_id)
             if(nft.save)
                 # we success create user to our db
                 render json: nft
