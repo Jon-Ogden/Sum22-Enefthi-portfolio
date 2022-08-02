@@ -19,7 +19,7 @@ const Login = () => {
   return (
     <>
       <div className="rightimg">
-        <img src="https://api.time.com/wp-content/uploads/2022/07/NASA-james-webb-telescope-07.jpg" />
+        <img src="https://media2.giphy.com/avatars/memberoneio/9StaF0UBJfih.gif" />
       </div>
       <div className="form">
       <h1>Login</h1>
@@ -53,6 +53,11 @@ const Login = () => {
       <Button event={() => {
               navigate("/register");
             }}>Create new account</Button>
+            <div className="dashButton">
+            <Button event={() => {
+              navigate("/");
+            }}>Dashboard</Button>
+            </div>
       </div>
     </>
   );

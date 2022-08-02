@@ -30,7 +30,7 @@ import { UserAvatarData } from "./UserAvatarData";
     cName: "nav-text",
   },
   {
-    title: "Market Place",
+    title: "MarketPlace",
     path: "/market",
     icon: <StorefrontIcon />,
     cName: "nav-text",
