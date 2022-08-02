@@ -1,6 +1,9 @@
-.navrightside {
-  display: flex;
-  flex-direction: row;
-  margin-left: 180%;
+.navbuttonsrightside {
+  margin-left: 10%;
+  display: inline-block;
+}
+.menudrop{
+  margin-left: 70%;
+  margin-top: -55%;
 }
 

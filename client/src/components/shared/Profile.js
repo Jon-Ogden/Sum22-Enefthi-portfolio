@@ -19,7 +19,6 @@ const Profile = () => {
   const [display, setDisplay] = useState("created")
   const params = useParams();
   const [creator, setCreator] = useState({}) 
-
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [normData, setNormData] = useState([])
@@ -101,24 +100,24 @@ const Profile = () => {
 }
 
 const renderUsersTab = () =>{
-  if(isLoading || loading){
-    return (<div><h1 className="shiftleft">loading...</h1></div>)
-  } 
-  if(search.length > 0){
-    if(normData2.length == 0){
-      return (<div><Text>No users match this search</Text></div>)
-    } return normData2.map((c)=>{
-      let userCard = users.filter(x => x.id == c.user_id)[0]
+  if (!users){return (
+    <></>
+  )
+  }
+  let userCard = users.find(x => x.id == params.id)
+  if(!userCard){return(<></>)}
+  console.log(user)
       return <UserCard 
-      key={c.id}
-      id={c.id}
-      name={c.name}
-      email={c.email} 
-      image={c.image}
+      key={userCard.id}
+      id={userCard.id}
+      name={userCard.name}
+      email={userCard.email} 
+      image={userCard.image}
       user={userCard.name}
+      signed_in={user ?  user.id  : 0}
       />
-    })}}
-
+    }
+  
 
 
 

@@ -66,17 +66,21 @@ function NftCard(props) {
             <Typography variant="body2" color="text.secondary">
             <div className="eth">
               <p>Current price</p>
-            <img src={eth}/>  &nbsp; <div className="price"> {props.price} $ </div>
+              &nbsp; <div className="price"> ${props.price}  </div>
             </div>
               <br />
               {/* {price ?} */}
             </Typography>
           </CardContent>
         </div>
+        
         <CardActions>
+        <div className="buypiece">
           {for_sale ? <Button variant="outlined" onClick={()=>{navigate(`/payment/${props.id}`)}} size="small">Buy Piece</Button> :
           <Button variant="outlined">Not for sale</Button>}
+          </div>
         </CardActions>
+
       </Card>
     );
   }
@@ -102,7 +106,7 @@ function NftCard(props) {
             <Typography variant="body2" color="text.secondary">
             <div className="eth">
               <p>Current price</p>
-            <img src={eth}/>  &nbsp; <div className="price"> {props.price} $ </div>
+              &nbsp; <div className="price"> ${props.price}  </div>
             </div>
               <br />
    
@@ -145,7 +149,7 @@ function NftCard(props) {
         <Typography variant="body2" color="text.secondary">
         <div className="eth">
               <p>Current price</p>
-            <img src={eth}/>  &nbsp; <div className="price"> {props.price} ETH </div>
+              &nbsp; <div className="price"> ${props.price}  </div>
             </div>
           <br />
          </Typography>

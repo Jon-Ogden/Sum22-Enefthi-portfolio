@@ -6,8 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { useContext } from "react";
 const UserCard = (props) => {
   const navigate = useNavigate();
-
-
+    if (props.signed_id == props.id) {
   return (
     <div className="overall">
       <div className="avataricon">
@@ -28,11 +27,41 @@ const UserCard = (props) => {
       </div>
       <br />
       <hr />
+      <div>
       <h5>Joined in</h5>
       {props.joined_in}
       <Button></Button>
+      </div>
     </div>
   );
+  } else {
+    return (
+      <div className="overall">
+      <div className="avataricon">
+      <Avatar src={props.image} sx={{ width: 56, height: 56 }}/>
+      </div>
+      <div className="avatarname">
+      <h2>{props.name}</h2>
+      </div>
+      <div className="avataremail">
+      <p>{props.email}</p>
+      </div>
+      <br />
+      <div className="details">
+      <p>Dedicated to create amazing for art exhibition</p>
+      </div>
+      <div className="editprofile">
+      </div>
+      <br />
+      <hr />
+      <div>
+      <h5>Joined in</h5>
+      {props.joined_in}
+      <Button></Button>
+      </div>
+    </div>
+    )
+  }
 };
 
 export default UserCard;

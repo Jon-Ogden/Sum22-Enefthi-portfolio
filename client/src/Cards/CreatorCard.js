@@ -31,8 +31,8 @@ export default function MediaCard(props) {
       </CardContent>
       <CardActions>
         <Button variant='contained' onClick={()=>{
-          navigate(`marketdetail/${props.id}`)
-        }}>Follow</Button>
+          navigate(`profile/${props.id}`)
+        }}>View Profile</Button>
       </CardActions>
       <CardContent>
         <Typography variant="body2" color="text.secondary">

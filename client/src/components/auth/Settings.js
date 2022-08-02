@@ -26,8 +26,14 @@ const Settings = () => {
         </div> */}
 
         <div className="personalinfo">
-        <h3>Edit Your Profile</h3>
-          <hr />
+          <div className="profiletitle">
+        <h3>Profile</h3>
+        <p>Update your photo and personal details here</p>
+        </div>
+        
+          <div className="peronalinformation">
+          <h4>Peronsal infomation</h4>
+          <div className="fullnameperonsal">
           <TextField
             required
             id="filled-required"
@@ -35,6 +41,8 @@ const Settings = () => {
             defaultValue="Full Name"
             variant="filled"
           />
+          </div>
+          <div></div>
           <TextField
             required
             id="filled-required"
@@ -60,9 +68,9 @@ const Settings = () => {
           
           <br />
           <TextField
-             required
-             id="filled-helperText"
-             label="required"
+            required
+            id="filled-helperText"
+            label="required"
             defaultValue="Website"
             variant="filled"
           />
@@ -76,6 +84,7 @@ const Settings = () => {
           /> */}
           <Button            variant="contained">Submit
           </Button>
+          </div>
         </div>
       </div>
     </div>

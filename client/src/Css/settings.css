@@ -6,7 +6,6 @@
  }
 
  .personalinfo{
-  outline: black 1px solid;
   margin-top: -18.8%;
   width: 20%;
  }
@@ -20,4 +19,18 @@
   margin-left: 70%;
   outline: black solid 1px;
   margin-top: -1%;
+ }
+ .profiletitle{
+  margin-bottom: 100%;
+ }
+ .peronalinformation{
+  outline: 1px solid black;
+  margin-right: 60%;
+  margin-top: -100%;
+  margin-left: -35%;
+ }
+
+ .peronalinformation button {
+  margin-top: 5%;
+  margin-left: 20%;
  }

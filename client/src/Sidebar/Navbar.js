@@ -107,8 +107,7 @@ export default function Navbar() {
    
             {navbar.map((item, index) => {
               return (
-                <li key={index} className={item.cName}>
-                  
+                <li key={index} className={item.cName}>                
                   <Link
                     to={item.path}
                     onClick={item.title === "Logout" ? () => logout() : null}

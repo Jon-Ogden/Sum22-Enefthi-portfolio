@@ -90,10 +90,9 @@ span {
   margin-left: 15%;
 }
 .rightbuttons{
-  display: flex;
+  display: inline-block;
   justify-content: center;
-  width: 10%;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
 .logo{
