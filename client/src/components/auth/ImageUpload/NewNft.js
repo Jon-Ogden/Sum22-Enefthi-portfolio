@@ -9,6 +9,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../providers/AuthProvider";
 import "../../../Css/newnft.css";
+import { Button } from "@mui/material";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 const NewNft = () => {
@@ -75,7 +76,7 @@ const NewNft = () => {
           onChange={(e) => setDescription(e.target.value)}
         /><br />
         <button className="inputtext" type="submit">submit</button>
-
+      <div className="filedrop">
         <FilePond
           className="filedrop"
           files={files}
@@ -84,6 +85,7 @@ const NewNft = () => {
           name="files"
           labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
         />
+        </div>
       </form>
     </div>
   );

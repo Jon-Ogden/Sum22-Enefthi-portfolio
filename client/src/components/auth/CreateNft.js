@@ -4,7 +4,9 @@ import NewNft from "./ImageUpload/NewNft";
 const CreateNft = () => {
   return (
     <div className="shiftleft">
-      <h2>Upload Art</h2>
+      <div className="uploadart">
+      <h1>Upload Art</h1>
+      </div>
       <div>
         <NewNft />
       </div>

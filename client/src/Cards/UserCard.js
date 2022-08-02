@@ -25,13 +25,7 @@ const UserCard = (props) => {
       <div className="editprofile">
       <Button variant="contained" onClick={()=>{navigate(`/settings/`)}}>Edit profile</Button>
       </div>
-      <br />
-      <hr />
-      <div>
-      <h5>Joined in</h5>
-      {props.joined_in}
-      <Button></Button>
-      </div>
+    
     </div>
   );
   } else {
@@ -52,13 +46,7 @@ const UserCard = (props) => {
       </div>
       <div className="editprofile">
       </div>
-      <br />
-      <hr />
-      <div>
-      <h5>Joined in</h5>
-      {props.joined_in}
-      <Button></Button>
-      </div>
+  
     </div>
     )
   }

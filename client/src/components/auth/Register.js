@@ -34,7 +34,7 @@ const Register = () => {
   };
   return (
     <>
-    <div className="imgblock">        <img src="https://api.time.com/wp-content/uploads/2022/07/NASA-james-webb-telescope-07.jpg" />
+    <div className="imgblock">        <img src="https://nftcalendar.io/storage/uploads/2021/10/26/ezgif_com-gif-maker__1__10262021182854617848e6a681a.gif" />
 </div>
     <div className="formreg">
       <h1>Register</h1>
@@ -86,6 +86,11 @@ const Register = () => {
       <Button event={() => {
               navigate("/login");
             }}>Login</Button>
+     <div className="dashButton">
+            <Button event={() => {
+              navigate("/");
+            }}>Dashboard</Button>
+            </div>
     </div>
     </>
   );
